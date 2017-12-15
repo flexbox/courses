@@ -1,0 +1,473 @@
+<!DOCTYPE html><html lang=fr><head><meta charset=utf-8 /><title>Pray for bower - David Leuliette</title><meta content="noindex,nofollow" name=robots /><meta content="width=device-width, initial-scale=1.0" name=viewport /><meta content=yes name=mobile-web-app-capable /><meta content="courses.davidl.fr" name=application-name /><link href="/chrome-touch-icon-192x192.png" rel=icon sizes=192x192 /><meta content=yes name=apple-mobile-web-app-capable /><meta content=black name=apple-mobile-web-app-status-bar-style /><meta content="courses.davidl.fr" name=apple-mobile-web-app-title /><link href="/apple-touch-icon.png" rel=apple-touch-icon /><meta content="ms-touch-icon-144x144-precomposed.png" name=msapplication-TileImage /><meta content="#607D8B" name=msapplication-TileColor /><meta content="#607D8B" name=theme-color /><link href="/favicon-196x196.png" rel=icon sizes=196x196 type="image/png"/><link href="/favicon-160x160.png" rel=icon sizes=160x160 type="image/png"/><link href="/favicon-96x96.png" rel=icon sizes=96x96 type="image/png"/><link href="/favicon-32x32.png" rel=icon sizes=32x32 type="image/png"/><link href="/favicon-16x16.png" rel=icon sizes=16x16 type="image/png"/><link href="/assets/stylesheets/presentation.css" rel=stylesheet /><link href="http://fonts.googleapis.com/css?family=Lato:400,300,700|Ubuntu+Mono:400,700" rel=stylesheet /></head><body class="presentations presentations_yarn presentations_yarn_index"><div class=reveal><div class=slides><section data-markdown="" data-separator="^---" data-vertical="^--"><script type="text/template"># Pray for bower
+
+💀
+
+<small> Smart Pension — December 2017 </small>
+
+---
+
+or
+
+### State of art of packages management in JavaScript in 2017
+
+--
+
+## /whois
+
+<div class="presentation--avatar">
+  ![Ruby designer David Leuliette](/assets/images/avatar-rinjani.jpg)
+</div>
+
+David Leuliette <small>aka</small> [@_flexbox](https://twitter.com/_flexbox)
+
+Front-end developer
+
+---
+
+## Prerequisites
+
+--
+
+### package manager
+
+A package management system is a __collection of software tools that automates the process__ of installing, upgrading, and removing computer programs for a computer's operating system.
+
+![](/assets/images/yarn/init-npm-install.gif)
+
+--
+
+### Buzzworld
+
+- io.js Node.js Express.js Socket.IO
+- Backbone Ember Angular __React__ _redux_
+- TypeScript __babel__ coffeescript
+- __Webpack__ grunt gulp Brunch
+- npm bower __yarn__
+- yeoman browserify electron
+- compile optimize minify __transpile__ _make a bundle_
+- _Static variable_
+
+--
+
+### Disclaimer
+
+![](/assets/images/yarn/matrix-subway.gif)
+
+---
+
+# A long time ago
+
+--
+
+### 1995 — JavaScript
+
+Netscape Communications Corporation had a strong presence in the young web. His browser, __Netscape Communicator__, was gaining traction as a competitor to NCSA Mosaic, the first popular web browser.
+
+![](/assets/images/yarn/netscape.png)
+
+--
+
+### 1995 — Brendan Eich
+
+Eich was contracted by Netscape Communications to develop a “Scheme for the browser”, 10 days later JavaScript was born.
+
+![](/assets/images/yarn/commitstrip.png)
+
+> Give me 10 days for the first version
+
+--
+
+### 1998 — [Advanced Packaging Tool](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool)
+
+For Debian, Slackware and other Linux distributions
+
+`$ apt-get install <package_name>`
+
+--
+
+### 2009 — [Homebrew](https://en.wikipedia.org/wiki/Homebrew_(package_management_software)
+
+`$ brew install <package_name>`
+
+- Simplifies installation of software on macOS
+- Witten in Ruby
+- Extensive use of GitHub
+
+--
+
+### 2009 — Node.js
+
+- Google’s V8 JavaScript engine.
+
+- Ryan Dahl was inspired to create Node.js after seeing a __file upload progress bar on Flickr__
+
+![](https://upload.wikimedia.org/wikipedia/commons/2/2d/Pbar.gif)
+
+? %
+
+---
+
+## We need a package manager for JavaScript
+
+🎉
+
+--
+
+## 2010 — [npm](https://github.com/npm/npm)
+
+⭐ 14 000
+
+`$ apt-get install nodejs`
+
+`$ brew install nodejs`
+
+--
+
+### about:npm
+
+A __programming library__ and __package manager__ for Node.js
+
+![](/assets/images/yarn/npm.jpg)
+
+--
+
+### [Getting started](https://docs.npmjs.com/)
+
+- `$ npm init`
+- works with `package.json` – _like a manifest file_
+
+--
+
+- Builds nested dependencies trees
+- Fetches the dependencies for each dependency
+- Back-end stuff
+
+![](/assets/images/yarn/nest.png)
+
+--
+
+We use Package manager to __find existing code__ or __libraries__.
+
+Like we could install `jQuery`, `React`, `VueJS`, `Redux`… anything from the internet and __it’s super easy__.
+
+- `$ npm install <package_name>`
+  - Create the folder `node_modules`
+  - Download the whole internet
+
+--
+
+### cli tool
+
+`$ npm install <package_name> --global`
+
+Use your new command from anywhere
+
+`$ github-email flexbox`
+
+`$ tiny-care-terminal`
+
+--
+
+### cli tool
+
+`$ npm list --global`
+
+`$ npm list --global --depth=0`
+
+--
+
+[https://github.com/720kb/ndm](https://github.com/720kb/ndm)
+
+![](/assets/images/yarn/ndm.png)
+
+--
+
+### Protip: know your version
+
+🚨
+
+`$ node -v`
+
+[https://github.com/creationix/nvm](https://github.com/creationix/nvm)
+
+--
+
+### Protip: bump versions
+
+`nvm install 8.9.1 --reinstall-packages-from=x.x.x`
+
+---
+
+## 2012 — [bower](https://github.com/bower/bower)
+
+⭐ 15 000
+
+`$ npm install bower`
+
+`$ npm install bower --global`
+
+--
+
+### about:bower
+
+A package manager for the web developers
+
+![](/assets/images/yarn/bower.jpg)
+
+--
+
+![](/assets/images/yarn/bower-wikipedia.png)
+
+--
+
+### [Getting started](https://bower.io/#getting-started)
+
+- `$ bower init`
+- works with `bower.json`
+
+--
+
+- One version of a library at the same time in the browser
+- Builds flattened dependencies trees
+- Manually include sub-dependencies
+- Front-end stuff
+
+![](/assets/images/yarn/flat.png)
+
+--
+
+`$ bower install gulp --save`
+
+--
+
+### Problem
+#### _The nightmare [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell)_
+
+![](/assets/images/yarn/bower-unable-to-find-suitable1.png)
+
+--
+
+### 💀 bower?
+
+[Is bower dead on reddit](https://www.reddit.com/r/javascript/comments/2rrr3l/is_bowerio_dead_i_keep_being_told_not_to_to_use/)
+
+[npm vs bower tree](https://symbiotics.co.za/is-bower-dead-what-is-jspm-npm-for-client-side/)
+
+--
+
+### Move to npm only?
+
+--
+
+### `angular-bootstrap` drama
+
+1. `angular-bootstrap` was on npm
+1. silently unpublished
+1. pushed to npm by a random developer at 0.11 and not 0.12
+
+[issue #3021](https://github.com/angular-ui/bootstrap/issues/3021)
+
+--
+
+### protip:
+
+#### check the sources
+
+`$ npm search <package_name>`
+
+`$ bower search <package_name>`
+
+---
+
+![](/assets/images/yarn/new-challenger.gif)
+
+--
+
+### 2013 — [jspm](http://jspm.io/)
+
+⭐ 3 400
+
+`$ npm install jspm --global`
+
+`$ npm i jspm -g`
+
+--
+
+### about:jspm
+
+Frictionless Browser Package Management
+
+![](/assets/images/yarn/jspm.jpg)
+
+--
+
+- Works with SystemJs module loader
+- Allows multiple versions of the same package at the same time
+- Supports [circular dependencies](https://en.wikipedia.org/wiki/Mutual_recursion)
+
+--
+
+`$ jspm install jquery`
+
+---
+
+## 23 mars 2016
+
+--
+
+
+--
+
+💥 left-pad
+
+--
+
+##### 💥 React
+
+--
+
+## 💥 Babel
+
+--
+
+![](/assets/images/yarn/nuke.gif)
+
+--
+
+## [Lawyer](http://www.theregister.co.uk/2016/03/23/npm_left_pad_chaos/) broke the web
+
+![](/assets/images/yarn/lawyer.gif)
+
+> A patent lawyer sent me an e-mail asking me to unpublish “kik” module from NPM
+>
+> — Azer Koçulu
+
+--
+
+#### I have just [liberated my modules](https://medium.com/@azerbike/i-ve-just-liberated-my-modules-9045c06be67c#.x9llyfhns)
+
+> This situation made me realize that NPM is someone’s private land where corporate is more powerful than the people, and I do open source because, Power To The People.
+>
+> – Azer Koçulu
+
+--
+
+And that's how JavaScript app development works in 2016. ®
+
+---
+
+## 2016 — Yarn
+
+⭐ 30 000
+
+`$ apt-get install yarn`
+
+`$ brew install yarn`
+
+--
+
+### about:yarn
+
+__Fast__, __reliable__, and __secure dependency__ management
+
+![](/assets/images/yarn/yarn.jpg)
+
+--
+
+### [Getting started](https://yarnpkg.com/en/docs/getting-started/)
+
+- Start with `package.json`
+- Uses a lockfile `yarn.lock` to exactly reproduce installed packages
+- `$ npm init === yarn init`
+- `$ npm publish === yarn publish`
+
+--
+
+> To make it more clear, your `package.json` states
+> “what I want” for the project whereas your lockfile says
+> “what I had” in terms of dependencies.
+> _– Dan Abramov author of redux_
+
+--
+
+`$ npm install`
+
+🤔
+
+`$ yarn`
+
+--
+
+### [Cheat Sheet](https://shift.infinite.red/npm-vs-yarn-cheat-sheet-8755b092e5cc)
+
+`$ npm install ember-cli --save === yarn add ember-cli`
+
+`$ npm update --save === yarn upgrade`
+
+--
+
+### Why I am loving it?
+
+`$ yarn upgrade-interactive`
+
+![](/assets/images/yarn/upgrade-interactive.png)
+
+--
+
+### Yarn documentation — February 2017
+
+> This is unstable software, but Facebook uses it in production. What are you waiting for?
+
+--
+
+### So what's next?
+
+--
+
+### 🙏 for bower
+
+https://bower.io/blog/2017/how-to-migrate-away-from-bower/
+
+--
+
+Yarn 1.x is able to install most of Bower packages
+
+https://github.com/sheerun/bower-away
+
+--
+
+![](/assets/images/yarn/matrix-subway.gif)
+
+--
+
+[![](/assets/images/yarn/turbo.png)](https://medium.com/@ericsimons/introducing-turbo-5x-faster-than-yarn-npm-and-runs-natively-in-browser-cc2c39715403)
+
+--
+
+### 🌴🔆
+
+http://davidl.fr/blog/indonesia.html
+
+---
+
+## Conclusion
+
+[https://npmcompare.com](https://npmcompare.com/compare/bower,npm,yarnpkg)
+
+--
+
+> Good is the enemy of great, but great is the enemy of shipped
+>
+> — Jeffrey Feldman
+
+--
+
+## One more thing
+
+`$ npm xmas`
+
+--
+
+## Q&A
+
+Ask questions [@_flexbox](https://twitter.com/_flexbox)</script></section></div><footer><div class=footer--terms><p><a rel=nofollow href="http://davidl.fr/">davidl.fr</a>- Mentions <a href="https://twitter.com/@_flexbox">@_flexbox</a><span class=print-link>- Export <a href="?print-pdf">PDF </a></span></p></div></footer></div><script src="/assets/javascripts/presentation.js"></script></body></html>

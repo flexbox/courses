@@ -1,0 +1,374 @@
+<!DOCTYPE html><html lang=fr><head><meta charset=utf-8 /><title>Craft everything with Middleman - David Leuliette</title><meta content="noindex,nofollow" name=robots /><meta content="width=device-width, initial-scale=1.0" name=viewport /><meta content=yes name=mobile-web-app-capable /><meta content="courses.davidl.fr" name=application-name /><link href="/chrome-touch-icon-192x192.png" rel=icon sizes=192x192 /><meta content=yes name=apple-mobile-web-app-capable /><meta content=black name=apple-mobile-web-app-status-bar-style /><meta content="courses.davidl.fr" name=apple-mobile-web-app-title /><link href="/apple-touch-icon.png" rel=apple-touch-icon /><meta content="ms-touch-icon-144x144-precomposed.png" name=msapplication-TileImage /><meta content="#607D8B" name=msapplication-TileColor /><meta content="#607D8B" name=theme-color /><link href="/favicon-196x196.png" rel=icon sizes=196x196 type="image/png"/><link href="/favicon-160x160.png" rel=icon sizes=160x160 type="image/png"/><link href="/favicon-96x96.png" rel=icon sizes=96x96 type="image/png"/><link href="/favicon-32x32.png" rel=icon sizes=32x32 type="image/png"/><link href="/favicon-16x16.png" rel=icon sizes=16x16 type="image/png"/><link href="/assets/stylesheets/presentation.css" rel=stylesheet /><link href="http://fonts.googleapis.com/css?family=Lato:400,300,700|Ubuntu+Mono:400,700" rel=stylesheet /></head><body class="presentations presentations_middleman presentations_middleman_index"><div class=reveal><div class=slides><section data-markdown="" data-separator="^---" data-vertical="^--"><script type="text/template">## Craft __everything__ <br>with Middleman
+
+<small>#RubyCampBE</small>
+
+<small>August 2015</small>
+
+
+--
+
+…_everything_ ?
+
+--
+
+…even a space rocket ?
+
+![Space rocket](/assets/images/middleman/space-rocket.gif)
+
+--
+
+## Today we will be covering
+
+- Websites
+- Single Page Application
+- Style guide
+
+--
+
+## Who are you ?
+
+<small>How Middleman could help us to ship faster</small>
+
+--
+
+## Who am I ?
+
+![Ruby designer](/assets/images/avatar-rinjani.jpg)
+
+David Leuliette <small>aka</small> [@_flexbox](https://twitter.com/_flexbox)
+
+Front-end developer consultant
+
+![Logo ineat conseil](/assets/images/styleguide/logo-ineat-conseil.png)
+
+--
+
+![Aperture science](/assets/images/middleman/aperture-science.png)
+
+--
+
+### Science driven developement
+
+1. Inquiry
+2. Hypothesis
+3. Experiment
+4. Analysis
+
+--
+
+### Things Science cares about
+
+- __me__: nope
+- __you__: nope
+- __truth__: yep
+
+--
+
+# __reality__ <br><small>where ideas come to die</small>
+
+---
+
+## Websites
+
+--
+
+### Person website
+
+[![Jump start middleman](/assets/images/middleman/jump-start-middleman.png)](https://twitter.com/JakeYeaton/status/629732721355583488)
+
+--
+
+Middleman is a __static website generator__
+
+[![middleman landing page](/assets/images/middleman/middleman-homepage.png)](https://middlemanapp.com/)
+
+--
+
+### Events
+
+Single page for Ruby group http://ruby-nord.org/
+
+![Ruby nord event](/assets/images/middleman/ruby-nord.png)
+
+--
+
+### Landing page company
+
+[![mailchimp landing page](/assets/images/middleman/mailchimp-landing.png)](http://mailchimp.com/)
+
+--
+
+### Blogs
+
+Blog made by devs with `.markdown`
+
+<small>_Protip: use the [gem middleman-syntax](https://github.com/middleman/middleman-syntax)_</small>
+
+[![Alpine lab blog](/assets/images/middleman/alpine-blog.png)](http://www.alpine-lab.com/blog/)
+
+--
+
+### ♥ DRY
+
+gems & helpers
+
+--
+
+### [helpers](https://middlemanapp.com/basics/helper_methods/)
+
+- Link Helpers `link_to`
+- Output Helpers `content_for(:javascript)`
+- Asset Helpers `stylesheet_link_tag`
+
+<br>
+```ruby
+  = image_tag lorem.image('300x400'), alt: 'seo matter'
+```
+Produces:
+```html
+  <img src="http://placehold.it/300x400" alt="seo matter">
+```
+--
+
+##### Bonus:
+
+Custom helpers
+
+![Middleman custom helper](/assets/images/middleman/custom-helpers.png)
+
+--
+
+##### Bonus:
+
+`.yml` datas
+
+![Middleman custom helper](/assets/images/middleman/data-yml.png)
+
+simple-loop.html.slim
+~~~haml
+ul
+  - data.mentors.each do |mentor|
+    li
+      strong
+        = link_to mentor.name, mentor.url
+      - if mentor['image'].present?
+        = image_tag mentor.image
+      p
+        = mentor.description
+~~~
+
+--
+
+##### Extensions
+
+[![Middleman extensions](/assets/images/middleman/middleman-extensions.png)](https://directory.middlemanapp.com/#/extensions/all)
+
+--
+
+##### Templates
+
+Save your time use it!
+
+_ex:_ [codeless](https://github.com/flexbox/codeless) with Sass, Slim, CoffeeScript & more
+
+--
+
+# DEMO TIME
+
+~~~shell
+$ middleman init space-rocket-appolo-11 --template=codeless
+~~~
+
+---
+
+## Single Page Application
+
+--
+
+### Simple Page Application
+
+- Data visualisation
+- Fetch data from Rest API
+- Mobile application
+- …
+
+--
+
+### Bower to the rescue
+
+[![Space rocket](/assets/images/middleman/bower-logo.png)](http://bower.io/)
+
+--
+
+### Complex form validation with Angular
+
+[![A huge form with angular](/assets/images/middleman/planete-oui.png)](https://www.planete-oui.fr/Souscription/#/)
+
+--
+
+### Data on JSON
+
+[![Simple sorting application with angularjs](/assets/images/middleman/angular-sport.gif)](http://samuelbourdon.com/demos/mudgular/)
+
+--
+
+### There are some crazy guys
+
+[middleman-backbone-react-template](https://github.com/jbhatab/middleman-backbone-react-template)
+
+- backbone
+- bootstrap
+- react
+- slim
+
+![Modern workflow for webapp](/assets/images/middleman/single-page-app.png)
+
+--
+
+![Drink water cat](/assets/images/middleman/cat-drink-water.gif)
+
+<small>__Fun Game__: During this time you can mention [@hsablonniere](https://twitter.com/hsablonniere) #drinkingCat</small>
+---
+
+## Style guides
+
+--
+
+Remember the space rocket
+
+![Space rocket launch](/assets/images/middleman/space-rocket.jpg)
+
+--
+
+Conventions & common language
+
+![The nasa style guide](/assets/images/middleman/nasa-styleguide.png)
+
+--
+
+### Why ?
+
+You need __styleguide__ & __documentation__
+
+--
+
+_When a new coworker wonder<br>if there is a doc for the project_
+
+![Documentation](/assets/images/middleman/documentation.gif)
+
+--
+
+### Benefits of maintaining a front-end style guide
+
+- Easier to test
+- Better workflow
+- Shared vocabulary _(Modal, popin or dialog)_
+- Useful reference _(Documentation)_
+
+--
+
+### gov.uk forms sandbox
+
+[![gov.uk forms](/assets/images/middleman/styleguide-forms.png)](http://govuk-elements.herokuapp.com/#guide-forms)
+
+--
+
+Middleman is __ultra usefull__ for your front-end dev
+
+- gh-pages
+- Slim & markdown (HTML)
+- Sass (CSS)
+- CoffeeScript (JavaScript)
+
+--
+
+##### Bonus:
+
+Easier to upgrade to a rails app (with [codeless](https://github.com/flexbox/codeless))
+
+Stylesheets, fonts, images, and JavaScript files go in the `/source/assets/` directory.
+
+Vendor stylesheets and JavaScripts should go in each of their `/bower_components/` directories.
+
+    codeless/
+    ├── bower_components/
+    │    └── ...
+    ├── source/
+    │   ├── assets/
+    |   |    ├── stylesheets/application.scss
+    |   |    └── javascripts/application.js.coffee
+    |   └── ...
+
+--
+
+The __most important starting point__ for any project<br>
+_is a set of guidelines_.
+
+--
+
+The __most important starting point__ for any project<br>
+<del>_is a set of guidelines_</del>.
+
+--
+
+The most important starting point for any project<br>
+__Making bridges__ between designers & developers
+
+--
+
+### Start your style guide today
+
+<small>&</small>
+
+#### Test with __real world devices__
+
+--
+
+__This is not__ _reality_
+![Photoshop is not a website](http://farm8.staticflickr.com/7352/12809516183_ae080d369b_o.jpg)
+
+--
+
+# DEMO TIME
+
+<br>
+
+__Real world__ _prototype_
+
+[foundation-boilerplate](http://flexbox.github.io/foundation-boilerplate/)
+
+--
+
+<small>Last story</small>
+
+## Mission to mars: climate orbiter
+
+September 1999
+
+![mars](/assets/images/prototype/mars.jpg)
+
+--
+
+### A system issue
+
+- Metric system
+- Imperial system
+
+<br>
+Cost: 120 000 000 €
+
+---
+
+## Happy Hacking!
+
+<small>&</small>
+
+Questions?
+
+<br>
+[@_flexbox](https://twitter.com/_flexbox) _feedback_,<br>
+_rebuttals_ & _bitcoins_
+<br>
+<br>
+
+<small>#RubyCampBE</small></script></section></div><footer><div class=footer--terms><p><a rel=nofollow href="http://davidl.fr/">davidl.fr</a>- Mentions <a href="https://twitter.com/@_flexbox">@_flexbox</a><span class=print-link>- Export <a href="?print-pdf">PDF </a></span></p></div></footer></div><script src="/assets/javascripts/presentation.js"></script></body></html>

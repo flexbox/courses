@@ -1,0 +1,7 @@
+Host: courses.davidl.fr
+
+User-agent: *
+Disallow: /presentations/
+Disallow: /programs/print/
+
+Sitemap: http://courses.davidl.fr/sitemap.xml

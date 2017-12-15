@@ -1,0 +1,175 @@
+<!DOCTYPE html><html lang=fr><head><meta charset=utf-8 /><title>jQuery 101 - David Leuliette</title><meta content="noindex,nofollow" name=robots /><meta content="width=device-width, initial-scale=1.0" name=viewport /><meta content=yes name=mobile-web-app-capable /><meta content="courses.davidl.fr" name=application-name /><link href="/chrome-touch-icon-192x192.png" rel=icon sizes=192x192 /><meta content=yes name=apple-mobile-web-app-capable /><meta content=black name=apple-mobile-web-app-status-bar-style /><meta content="courses.davidl.fr" name=apple-mobile-web-app-title /><link href="/apple-touch-icon.png" rel=apple-touch-icon /><meta content="ms-touch-icon-144x144-precomposed.png" name=msapplication-TileImage /><meta content="#607D8B" name=msapplication-TileColor /><meta content="#607D8B" name=theme-color /><link href="/favicon-196x196.png" rel=icon sizes=196x196 type="image/png"/><link href="/favicon-160x160.png" rel=icon sizes=160x160 type="image/png"/><link href="/favicon-96x96.png" rel=icon sizes=96x96 type="image/png"/><link href="/favicon-32x32.png" rel=icon sizes=32x32 type="image/png"/><link href="/favicon-16x16.png" rel=icon sizes=16x16 type="image/png"/><link href="/assets/stylesheets/presentation.css" rel=stylesheet /><link href="http://fonts.googleapis.com/css?family=Lato:400,300,700|Ubuntu+Mono:400,700" rel=stylesheet /></head><body class="presentations presentations_jquery presentations_jquery_index"><div class=reveal><div class=slides><section data-markdown="" data-separator="^---" data-vertical="^--"><script type="text/template"># jQuery 101
+
+---
+
+## What is [jQuery](https://jquery.com/)?
+
+--
+
+- A fast and concise JavaScript library
+- Simplifies programming with pre-defined scripts
+- Makes it easier for you to add interactivity to a webpage!
+
+--
+
+> "write less, do more"
+
+--
+
+### Example
+
+[Toggle function](https://www.montresandco.com/c/montres-homme.html)
+
+--
+
+## What you can do with jQuery
+
+- Select and manipulate `CSS` elements, tags, attributes, … on the page to make a page come alive.
+- Create, change or add content.
+- Animate (show/hide, fadein, fadeout, …) content.
+
+--
+
+⛔
+
+But avoid jQuery animations because they are not mobile first friendly. Use `CSS transitions instead.
+
+--
+
+
+## jQuery triggers
+
+- Clicking
+- Scrolling
+- Swipes
+- Tapping
+- Drag and drop
+- Change phone orientation
+- Hovering (not mobile friendly)
+- Mouseover (not mobile friendly)
+- User form inputs
+
+--
+
+## DEMO
+
+[http://codepen.io/flexbox/pen/WpxLWV](http://codepen.io/flexbox/pen/WpxLWV)
+
+--
+
+### What’s happening?
+
+- jQuery checks to see if document is loaded and then waits and listens.
+- When someone clicks on the Image 2 button, it triggers a `function` to swap the image URL, or its source attribute.
+- The `function` disables the image’s corresponding button.
+- By the way, a `function` is a coding statement that performs a single task or a series of tasks.
+- When jQuery hears someone click either button, it launches the corresponding `function`.
+
+---
+
+## Methods
+
+--
+
+`attr()` is a jQuery method. Methods are actions that do specific things to targeted objects like `attributes`, `divs`, `tags`, `elements`, …
+
+Other starter methods include:
+
+- `addClass()`
+- `append()`
+- `prepend()`
+- Links to more methods to change [attributes](https://api.jquery.com/category/attributes/) and [CSS](https://api.jquery.com/category/css/).
+
+--
+
+⛔
+
+Methods that require refreshing frames, like animation, are bad for mobile performance. We now use `CSS Transitions` and `Transformations instead.
+
+--
+
+## DEMO
+
+http://codepen.io/flexbox/pen/qrNgRY
+
+--
+
+### What’s happening?
+
+
+- HTML loads a simple sentence and jQuery checks to see if document is loaded. Then it waits and listens events.
+- When someone clicks either the append text button, it launches a `function` to adds text to the end.
+- The `function` disables the append button and enables the reset button.
+- Does the same thing for the prepend text button.
+
+---
+
+## CSS stlying on the fly
+
+--
+
+One of jQuery's strongest features is its ability to swap out one CSS class for another (or several), giving a webpage a sense of interactivity.
+
+- `css()`
+- `addClass()`
+- `removeClass()`
+
+--
+
+## DEMO
+
+http://codepen.io/cunyj/pen/MJLoeY
+
+---
+
+## Testing and Debugging
+
+--
+
+- Use the `console.log()` method to see if a function is working.
+- Outputs valuable info to the JavaScript console.
+- Launch the console by control-click-inspect element.
+
+---
+
+## CSS selectors
+
+--
+
+- Use the JavaScript Console to verify you are finding correct css selector(s)
+- Open this page using inspect element or option-command-j.
+- Click on Element to quickly review the page
+- Click on Console and enter the following:
+- `$('p');` and hit enter. What do you see?
+- `$('h2:first').text();` and hit enter. What do you see?
+- `$('h2:first').html();` and hit enter. What do you see?
+- `$('ul:first').find('li');` and hit enter. What do you see?
+- List of [jQuery CSS Selectors](https://api.jquery.com/category/selectors/)
+
+---
+
+__Exercice__
+
+- [DOM manipulation](https://github.com/flexbox/jquery-dom-manipulation)
+
+1. Fork the repo
+1. `git clone <REPONAME>` on your machine
+1. Follow the README
+1. For each modification don’t forget to commit your work
+
+--
+
+__Exercice__
+
+- Play with [AJAX](https://github.com/flexbox/jquery-quotes)
+
+1. Fork the repo
+1. `git clone <REPONAME>` on your machine
+1. Follow the README
+1. For each modification don’t forget to commit your work
+
+--
+
+__Exercice__
+
+[try.jquery.com](http://try.jquery.com/)</script></section></div><footer><div class=footer--terms><p><a rel=nofollow href="http://davidl.fr/">davidl.fr</a>- Mentions <a href="https://twitter.com/@_flexbox">@_flexbox</a><span class=print-link>- Export <a href="?print-pdf">PDF </a></span></p></div></footer></div><script src="/assets/javascripts/presentation.js"></script></body></html>

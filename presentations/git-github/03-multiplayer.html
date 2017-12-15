@@ -1,0 +1,403 @@
+<!DOCTYPE html><html lang=fr><head><meta charset=utf-8 /><title>Git & GitHub 103 - Multiplayer - David Leuliette</title><meta content="noindex,nofollow" name=robots /><meta content="width=device-width, initial-scale=1.0" name=viewport /><meta content=yes name=mobile-web-app-capable /><meta content="courses.davidl.fr" name=application-name /><link href="/chrome-touch-icon-192x192.png" rel=icon sizes=192x192 /><meta content=yes name=apple-mobile-web-app-capable /><meta content=black name=apple-mobile-web-app-status-bar-style /><meta content="courses.davidl.fr" name=apple-mobile-web-app-title /><link href="/apple-touch-icon.png" rel=apple-touch-icon /><meta content="ms-touch-icon-144x144-precomposed.png" name=msapplication-TileImage /><meta content="#607D8B" name=msapplication-TileColor /><meta content="#607D8B" name=theme-color /><link href="/favicon-196x196.png" rel=icon sizes=196x196 type="image/png"/><link href="/favicon-160x160.png" rel=icon sizes=160x160 type="image/png"/><link href="/favicon-96x96.png" rel=icon sizes=96x96 type="image/png"/><link href="/favicon-32x32.png" rel=icon sizes=32x32 type="image/png"/><link href="/favicon-16x16.png" rel=icon sizes=16x16 type="image/png"/><link href="/assets/stylesheets/presentation.css" rel=stylesheet /><link href="http://fonts.googleapis.com/css?family=Lato:400,300,700|Ubuntu+Mono:400,700" rel=stylesheet /></head><body class="presentations presentations_git-github presentations_git-github_03-multiplayer"><div class=reveal><div class=slides><section data-markdown="" data-separator="^---" data-vertical="^--"><script type="text/template"># Multiplayer
+
+---
+
+## Today we will be covering
+
+- GUI
+- Using terminal
+- Branch
+- Code review
+- Workflow
+- Fork
+- Automation
+
+---
+
+## Graphical User Interface
+
+--
+
+> Sometime deal with conflicts is painful
+
+--
+
+### Command line absctraction
+
+[https://git-scm.com/downloads/guis](https://git-scm.com/downloads/guis)
+
+_Hit button instead of typing commands_
+
+--
+
+### GitHub for windows
+
+[https://desktop.github.com/](https://desktop.github.com/)
+
+_The shell is included_
+
+---
+
+## Serious Business
+
+__Using the terminal__
+
+--
+
+### Configure tooling
+
+```sh
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+```
+or
+
+```sh
+vim .gitconfig
+```
+
+```sh
+[user]
+  name = John Doe
+  email = johndoe@example.com
+```
+--
+
+### Install git & GitHub
+
+Protip: __Always__ use `ssh`
+
+[http://davidl.fr/dev/git.html](http://davidl.fr/dev/git.html)
+
+--
+
+### Create repositories
+
+```sh
+$ git init project-name
+```
+```sh
+$ git clone project-url
+```
+
+--
+
+> When you are lost … use `status`
+> <br>
+> — Ra’s al Ghul
+
+--
+
+### Make changes
+
+```sh
+$ git status
+```
+```sh
+$ git diff
+```
+```sh
+$ git add [file]
+```
+```sh
+$ git commit -m [message]
+```
+
+--
+
+### Save fragments
+
+```sh
+$ git stash
+```
+```sh
+$ git stash pop
+```
+```sh
+$ git stash list
+```
+
+Working with a new branch
+
+```sh
+$ git stash new-branch-name
+```
+
+--
+
+# DEMO TIME
+
+explore `.git` folder
+
+---
+
+## Branch
+
+--
+
+### Remember the `.gitconfig` file ?
+
+```sh
+$ git config --global push.default current
+```
+or
+
+```sh
+vim .gitconfig
+```
+
+```sh
+[push]
+  default = current
+```
+
+--
+
+### The main branches
+
+2 branches with an __infinite lifetime__
+
+- `master`
+- `develop`
+
+--
+
+![git-time-travel](/assets/images/git/main-branches.png)
+
+--
+
+### Parallel development <br>between team members
+
+Different types of branches with __limited life time__
+
+- `feature`
+- `release`
+- `hotfix`
+
+--
+
+![git-time-travel](/assets/images/git/feature-branch.png)
+
+--
+
+_Be careful with time paradox_
+
+![git-time-travel](/assets/images/git/past.jpg)
+
+--
+
+### Group changes
+
+```sh
+$ git branch
+```
+```sh
+$ git checkout -b feature/awesome
+```
+
+--
+
+### Working with branches
+
+rename branch
+
+```sh
+$ git branch -m feature/old-branch feature/new-branch
+```
+
+delete branch
+
+```sh
+$ git branch -d feature/merged-branch
+```
+
+fetch a remote branch
+
+```sh
+$ git checkout -t origin/feature/update-reviews
+```
+
+--
+
+### Synchronize changes
+
+```sh
+$ git fetch
+```
+```sh
+$ git pull --rebase
+```
+```sh
+$ git push [alias] [branch]
+```
+
+--
+
+### Merge
+
+```sh
+$ git checkout develop
+$ git pull --rebase
+$ git merge --no-ff feature/branch
+$ git push [alias] [branch]
+```
+
+--
+
+### Apply a commit from another branch
+
+`cherry-pick` can do that
+
+```sh
+$ git checkout master
+$ git cherry-pick d42c389f
+```
+--
+
+### Cancel (almost) everything with git
+```sh
+$ git revert <SHA>
+```
+
+[The complete list](https://github.com/blog/2019-how-to-undo-almost-anything-with-git)
+
+---
+
+## Code review
+
+--
+
+### Pull-request
+
+--
+
+![pull-request-workflow](/assets/images/git/development-workflow.jpg)
+
+--
+
+### Pull-request level 2
+
+--
+
+## Step 1 : qualification
+
+    $ mkdir .github && cd $_
+    $ touch pull_request_template.md
+
+--
+
+### `PULL_REQUEST_TEMPLATE.md`
+
+--
+
+### Remember ? — Respect the tree
+
+👌
+
+![Documentation](/assets/images/git/tree.png)
+
+--
+
+### Replay the commits on the branch
+
+> Instead of typing four capital letters "HEAD", you can say "@"
+
+```sh
+$ git rebase --interactive HEAD~6
+$ git rebase --interactive @~6
+```
+```sh
+$ git rebase -i d42c389f
+```
+
+--
+
+# DEMO TIME
+
+---
+
+## Workflow
+
+--
+
+### [git-flow](http://nvie.com/posts/a-successful-git-branching-model/)
+
+![git flow](/assets/images/git/git-flow-branching-model.jpg)
+
+--
+
+### [git-flow](http://nvie.com/posts/a-successful-git-branching-model/)
+
+5 January 2010 — [Vincent Driessen](https://twitter.com/nvie)
+
+- `master` is production with tags
+- `develop` we work from here
+
+<br>
+
+- `feature` from `develop` and merge into `develop`
+- `release` from `develop` and merge into `master` & `develop`
+- `hotfix` from `master` and merge into `master` & `develop` / `release`
+
+--
+
+[git flow extension](https://github.com/nvie/gitflow)
+
+```sh
+$ git flow feature
+$ git flow feature start <name> [<base>]
+$ git flow feature finish <name>
+```
+
+--
+
+### [github-flow](http://scottchacon.com/2011/08/31/github-flow.html)
+
+![github flow](/assets/images/git/github-flow-branching-model.jpg)
+
+--
+
+### [github-flow](http://scottchacon.com/2011/08/31/github-flow.html)
+
+_31 August 2011 — [Scott Chacon](https://twitter.com/chacon)_
+
+1. `master` is production
+1. `feature` branch from `master`
+1. often push on `origin`
+1. open `pull-request` when you want
+1. `merge` only after a pull-request review
+1. __Deploy immediatly__ after the merge on master
+
+--
+
+### [Trunk Based Development](http://paulhammant.com/2013/04/05/what-is-trunk-based-development/) (TBD)
+
+Fast but require more __concentration__ & __rigor__
+
+![trunk based development](/assets/images/git/git-trunk-based-dev.jpg)
+
+---
+
+## Fork
+
+--
+
+### How it works ?
+
+![fork](/assets/images/git/fork.png)
+
+[courses.cecilitse.org](http://courses.cecilitse.org/presentations/#/)
+
+--
+
+### Sync a fork
+
+Sync a fork of a repository to keep it [up-to-date with the upstream repository](https://help.github.com/articles/syncing-a-fork/).
+
+---
+
+## Happy Hacking!
+
+& celebrate
+
+[10 years of git](https://www.atlassian.com/git/articles/10-years-of-git/)</script></section></div><footer><div class=footer--terms><p><a rel=nofollow href="http://davidl.fr/">davidl.fr</a>- Mentions <a href="https://twitter.com/@_flexbox">@_flexbox</a><span class=print-link>- Export <a href="?print-pdf">PDF </a></span></p></div></footer></div><script src="/assets/javascripts/presentation.js"></script></body></html>

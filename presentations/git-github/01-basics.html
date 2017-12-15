@@ -1,0 +1,383 @@
+<!DOCTYPE html><html lang=fr><head><meta charset=utf-8 /><title>Git & GitHub 101 - Les Bases - David Leuliette</title><meta content="noindex,nofollow" name=robots /><meta content="width=device-width, initial-scale=1.0" name=viewport /><meta content=yes name=mobile-web-app-capable /><meta content="courses.davidl.fr" name=application-name /><link href="/chrome-touch-icon-192x192.png" rel=icon sizes=192x192 /><meta content=yes name=apple-mobile-web-app-capable /><meta content=black name=apple-mobile-web-app-status-bar-style /><meta content="courses.davidl.fr" name=apple-mobile-web-app-title /><link href="/apple-touch-icon.png" rel=apple-touch-icon /><meta content="ms-touch-icon-144x144-precomposed.png" name=msapplication-TileImage /><meta content="#607D8B" name=msapplication-TileColor /><meta content="#607D8B" name=theme-color /><link href="/favicon-196x196.png" rel=icon sizes=196x196 type="image/png"/><link href="/favicon-160x160.png" rel=icon sizes=160x160 type="image/png"/><link href="/favicon-96x96.png" rel=icon sizes=96x96 type="image/png"/><link href="/favicon-32x32.png" rel=icon sizes=32x32 type="image/png"/><link href="/favicon-16x16.png" rel=icon sizes=16x16 type="image/png"/><link href="/assets/stylesheets/presentation.css" rel=stylesheet /><link href="http://fonts.googleapis.com/css?family=Lato:400,300,700|Ubuntu+Mono:400,700" rel=stylesheet /></head><body class="presentations presentations_git-github presentations_git-github_01-basics"><div class=reveal><div class=slides><section data-markdown="" data-separator="^---" data-vertical="^--"><script type="text/template"># git 101
+
+---
+
+## Le Wagon workshop
+
+[Join-us on Meetup](https://www.meetup.com/fr-FR/Le-Wagon-Lille-Coding-Station/)
+
+--
+
+## Today we will be covering
+
+- Introduction
+- Setup
+- Git basic commands
+- Branching
+- Remote
+- GitHub 101
+
+---
+
+# Introduction
+
+--
+
+## Knowledge Worker
+
+We create and edit documents (text, images, etc.)
+
+--
+
+## Everyday workflow
+
+1. Create a file
+1. Save it
+1. Edit it
+1. Save it again
+1. etc.
+
+--
+
+## File life
+
+![](/assets/images/git-101/history_tracking.png)
+
+--
+
+## Manual Version Control
+
+![](/assets/images/git-101/manual_version_control.png)
+
+--
+
+## Can we automate this?
+
+For each document version, we need to know:
+
+1. **When** the file was modified
+1. **What** changed
+1. **Why** it was modified
+
+--
+
+## There's more: Teams
+
+![](/assets/images/git-101/history_tracking_team.png)
+
+--
+
+## That's one more question:
+
+For each document version, we need to know:
+
+1. When the file was modified
+1. What changed
+1. Why it was modified
+1. **Who** did the change
+
+--
+
+## In a nutshell
+
+We want a tool which:
+
+- tracks document versions
+- keeps an history of document changes
+- foster team work
+
+--
+
+## That would be
+
+![](/assets/images/git-101/git_logo.png)
+
+---
+
+# Setup
+
+Download & install git at [http://git-scm.com/](http://git-scm.com/)
+
+--
+
+## Tips For Getting Started
+
+--
+
+### Code snippets
+
+Often times look like `$ some code-stuff --here`.
+
+The __dollar sign__ identifies the line as one a user would enter into the command line, but you don't actually include it when you type it into terminal.
+
+In this case, you'd actually just type `some code-stuff --here`.
+
+--
+
+__Variables__ are indicated by `<VARIABLENAME>` in code snippets.
+
+When you actually use the line of code, replace `<VARIABLENAME>`, with your variable. For instance to make a new folder in terminal the format is, `mkdir <FOLDERNAME>`, so if you wanted to make a folder named 'octocat', you'd type: `mkdir octocat.
+
+--
+
+## Your identity
+
+```bash
+$ git config --global user.name "Sebastien Saunier"
+$ git config --global user.email "seb@lewagon.org"
+$ git config -l
+```
+
+---
+
+# Git basic commands
+
+--
+
+## Starting
+
+```bash
+$ mkdir new_project
+$ cd new_project
+$ git init
+```
+
+--
+
+## Status
+
+git can tell you if your folder
+has some modified files (dirty)
+
+```bash
+$ git status
+```
+
+--
+
+## Commit
+
+A **snapshot** of your work
+
+--
+
+<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Vincent_Willem_van_Gogh_128.jpg/1024px-Vincent_Willem_van_Gogh_128.jpg" width="40%">
+
+--
+
+## Commit - How to
+
+A **commit** is a 3-steps job.
+
+```bash
+# Select which file to add to the commit
+$ git add <file_1_which_has_been_modified>
+$ git add <file_2_which_has_been_modified>
+
+# Take a snapshot of what is in the staging area.
+$ git commit --message "A meaningful message about this change"
+```
+
+--
+
+## Diff
+
+If `git status` tells you something changed, you can inspect exactly what changed:
+
+```bash
+$ git diff
+$ git diff <a_specific_file_or_folder>
+```
+
+--
+
+## Log
+
+Show commit history with:
+
+```bash
+$ git log
+```
+
+---
+
+# Branching
+
+--
+
+## One feature == One branch
+
+--
+
+![](/assets/images/git-101/branching_1.png)
+
+```bash
+$ git branch my-feature
+```
+
+--
+
+2 commits happen in the `my-feature` branch
+
+![](/assets/images/git-101/branching_2.png)
+
+```bash
+$ git checkout my-feature
+$ git commit (x2)
+```
+
+--
+
+In the meantime, one commit happened in the `master` branch
+
+![](/assets/images/git-101/branching_3.png)
+
+```bash
+$ git checkout master
+$ git commit (x1)
+```
+
+--
+
+## Merge
+
+![](/assets/images/git-101/branching_4.png)
+
+```bash
+$ git checkout master
+$ git diff master..my-feature
+$ git merge my-feature
+```
+
+--
+
+## Clean-up
+
+![](/assets/images/git-101/branching_5.png)
+
+```bash
+$ git branch -d my-feature
+```
+
+---
+
+# Remote
+
+--
+
+![](/assets/images/git-101/remote.png)
+
+--
+
+## We need a remote!
+
+Go to GitHub, create a repo: https://github.com/new
+
+```bash
+$ git remote add origin git@github.com:<username>/<project>.git
+```
+
+--
+
+## Push
+
+Share the code with your team, and the world
+
+```bash
+# Generic command
+$ git push <remote> <branch>
+
+# What we'll use
+$ git push origin master
+```
+
+--
+
+## Pull
+
+```bash
+# Generic command
+$ git pull <remote> <branch>
+
+# What we'll use
+$ git pull origin master
+```
+
+---
+
+# GitHub
+
+--
+
+### How people build software
+
+![](/assets/images/git-101/org_example_nasa.png)
+
+--
+
+![](https://raw.githubusercontent.com/github/media/master/octocats/octocat.png)
+
+[Octodex](https://octodex.github.com/)
+
+--
+
+## Repository page
+
+Examples
+
+- [lewagon/surfcamp](https://github.com/lewagon/surfcamp)
+- [rails/rails](https://github.com/rails/rails)
+
+--
+
+## Profile page
+
+Example: [flexbox](https://github.com/flexbox)
+
+--
+
+## Pull Requests
+
+Team workflow
+
+--
+
+## Forks
+
+Open Source contribution
+
+--
+
+## GitHub Pages
+
+Hosting your website for free!
+
+--
+
+_15 min challenge!_
+
+[try.github.io](https://try.github.io/)
+
+--
+
+__Exercice__
+
+Use Git and GitHub on the command line
+
+[git-it](https://github.com/jlord/git-it-electron/releases)
+
+--
+
+## Want to see the vidéo ?
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/V6Zo68uQPqE" frameborder="0" allowfullscreen></iframe>
+
+---
+
+## Happy Hacking!
+
+## 🎁
+
+The best developer tools, [free for students](https://education.github.com/pack)
+
+Become a [campus GitHub expert](https://education.github.com/experts)</script></section></div><footer><div class=footer--terms><p><a rel=nofollow href="http://davidl.fr/">davidl.fr</a>- Mentions <a href="https://twitter.com/@_flexbox">@_flexbox</a><span class=print-link>- Export <a href="?print-pdf">PDF </a></span></p></div></footer></div><script src="/assets/javascripts/presentation.js"></script></body></html>

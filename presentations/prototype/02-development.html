@@ -1,0 +1,324 @@
+<!DOCTYPE html><html lang=fr><head><meta charset=utf-8 /><title>Développement itératif - Coder efficacement - David Leuliette</title><meta content="noindex,nofollow" name=robots /><meta content="width=device-width, initial-scale=1.0" name=viewport /><meta content=yes name=mobile-web-app-capable /><meta content="courses.davidl.fr" name=application-name /><link href="/chrome-touch-icon-192x192.png" rel=icon sizes=192x192 /><meta content=yes name=apple-mobile-web-app-capable /><meta content=black name=apple-mobile-web-app-status-bar-style /><meta content="courses.davidl.fr" name=apple-mobile-web-app-title /><link href="/apple-touch-icon.png" rel=apple-touch-icon /><meta content="ms-touch-icon-144x144-precomposed.png" name=msapplication-TileImage /><meta content="#607D8B" name=msapplication-TileColor /><meta content="#607D8B" name=theme-color /><link href="/favicon-196x196.png" rel=icon sizes=196x196 type="image/png"/><link href="/favicon-160x160.png" rel=icon sizes=160x160 type="image/png"/><link href="/favicon-96x96.png" rel=icon sizes=96x96 type="image/png"/><link href="/favicon-32x32.png" rel=icon sizes=32x32 type="image/png"/><link href="/favicon-16x16.png" rel=icon sizes=16x16 type="image/png"/><link href="/assets/stylesheets/presentation.css" rel=stylesheet /><link href="http://fonts.googleapis.com/css?family=Lato:400,300,700|Ubuntu+Mono:400,700" rel=stylesheet /></head><body class="presentations presentations_prototype presentations_prototype_02-development"><div class=reveal><div class=slides><section data-markdown="" data-separator="^---" data-vertical="^--"><script type="text/template"># Coder
+<br>
+# efficacement
+
+---
+
+## Today we will be covering
+
+- Conventions de codes
+- Performance
+- Développement par composants
+- Revue de code
+- Documentation
+
+---
+
+## Conventions
+
+--
+
+## Éviter le mauvais code
+
+![bidonville](/assets/images/prototype/mumbay.jpg)
+
+[Nicolas Crichton sur FlickR](https://www.flickr.com/photos/nicolas_crichton/2884308185/in/photolist-5oSQkt-8yJYAt-8yN3YE-8yN7HY-8yN6s5-8yN2hb-bsfxtb-brg9gJ-9V6QyJ-ogU5sx-7T5281-8ABsiq-5LMy6Z-bFHPwv-9V6SMG-8krUtx-8Aypbx-bEjjFS-5LMy8e-bFaM3a-9V4jMi-7YMQ25-dxb3ZM-8yN5fN-5LRMeh-noBfKo-prVT8Y-bF9CXZ-7LCBpg-g7D1Vo-5LRMcY-7RF9jR-rwebBB-7nUVE9-91j8gz-91j6Ba-5LMy2c-91j7Rc-sxLTzV-7XUsSV-8burDE-fM9FpU-9EWw7E-o4AjQM-81vBd5-5LMy3k-91neT1-8Am9sC-8Ai4g6-4CLHcm)
+
+--
+
+CSS
+```css
+div.gray-button.button-big.btn-big #link {
+  color: #bada55;
+}
+
+section #form .button-big[type="submit"] {
+  color: hotpink !important;
+}
+```
+
+JavaScript
+```javascript
+$('.class-1').data('select', 1)
+  .text('Select 1').hide();
+
+$('.class-2').data('select', 2)
+  .text('Select 2').hide();
+
+$('.class-3').data('field', 'indication')
+  .text('Select 3');
+
+$('.class-4').data('field', 'indication')
+  .text('Select 4').show();
+```
+
+--
+
+### Adopter une convention de nommage
+
+- [HTML](http://codeguide.co/)
+- [CSS](http://guidecss.fr/)
+- [JavaScript](https://github.com/airbnb/javascript)
+
+--
+
+### Partager sa configuration à plusieurs
+
+[.editorconfig](http://editorconfig.org/)
+
+---
+
+## Performance
+
+--
+
+## L’état du réseau mobile
+
+![Reseau mobile](/assets/images/prototype/reseau-mobile.png)
+
+[Opensignal.com](http://opensignal.com/reports/2015/02/state-of-lte-q1-2015/)
+
+--
+
+> 2,2s de temps de chargement, + 15% téléchargement
+> – Mozilla
+
+> Chaque -0,1s, +1% de revenus
+> – Amazon
+
+
+> 60% plus rapide, +14% convertion pour les dons
+> – Campagne pour Obama
+
+--
+
+![Reseau mobile](/assets/images/prototype/presque-internet.png)
+
+[Les services workers par Hubert Sablonnière](https://www.parleys.com/tutorial/la-revolution-hors-ligne-du-web-arrive-avec-les-service-workers)
+
+--
+
+## #webperfmatters
+
+[Améliorer le chargement CSS & JavaScript de vos pages](http://davidl.fr/blog/webperf.html)
+
+---
+
+
+## Développement <br> par composants
+
+--
+
+> La programmation orientée composant (POC) consiste à utiliser une approche modulaire de l’architecture d’un projet informatique, ce qui permet d’assurer au logiciel une meilleure lisibilité et une meilleure maintenance. Les développeurs, au lieu de créer un exécutable monolithique, se servent de briques réutilisables.
+
+[Wikipedia](https://fr.wikipedia.org/wiki/Programmation_orient%C3%A9e_composant)
+
+--
+
+### Pourquoi faire ?
+
+- Partage des pouvoirs
+- Faible dépendances
+- Indépendamment
+- Réutilisable
+
+--
+
+### front-end
+
+- Divers “parties” d’un site
+- Penser en plugins jQuery
+
+--
+
+### Avantages
+
+- Indépendence du contexte
+- Responsive design
+- Meilleure répartition au sein d’une équipe
+- Développement plus rapide
+- Mises à jour de code plus facile
+
+--
+
+### Construire des composants
+
+- Trouver le plus petit dénominateur commun
+- Conserver un esprit de flexiblilité
+
+--
+
+### Architecture
+
+- Structure
+- Apparence
+- Fonctionnalité
+
+--
+
+### Semantic Versioning 2.0.0
+
+Given a version number MAJOR.MINOR.PATCH
+
+[semver.org](http://semver.org/)
+
+--
+
+### Demo time
+
+[foundation-boilerplate](http://flexbox.github.io/foundation-boilerplate/)
+
+---
+
+## Revue de code
+
+--
+
+### Attention au bus factor
+
+![bus factor](http://media0.giphy.com/media/V1lqxDPDRfn5S/giphy.gif)
+
+[wikipedia](https://en.wikipedia.org/wiki/Bus_factor)
+
+--
+
+### Pair programming & revue de code
+
+- Effet canard en plastique
+- Évite les bugs
+- Partage des informations
+
+…Mais il y a des intéruptions
+
+--
+
+### Pull request ?
+
+[Exemple](https://github.com/zurb/foundation/pull/6113)
+
+--
+
+### Les bénéfices
+
+- Apprentissage
+- Des tests de meilleure qualité
+- Une meilleure écriture (Or in english)
+- Évite les bugs
+- Asynchrone
+- Historique
+
+--
+
+### Mais GitHub c’est trop cher
+
+- [Crew](https://github.com/crew-cr/Crew) — code review tool for git projects
+- [BitBucket](https://bitbucket.org/) — the Git solution for professional teams
+- [gitlab](https://gitlab.com/) — Open source git repo management software
+
+---
+
+## Documentation
+
+--
+
+> Quand on a touché à ma prod sans documenter les actions réalisées
+
+![im-fine](http://i.imgur.com/12RRgxf.gif)
+
+[lesjoiesdusysadmin](http://lesjoiesdusysadmin.tumblr.com/)
+
+--
+
+### README
+
+- Expliquer simplement le projet
+- Donner des exemples de code (Comment utiliser la librairie)
+- Documenter l’installation
+- Utilisez des badges [Travis CI](https://travis-ci.org/) ou [code climate](https://codeclimate.com/)
+<br>
+Exemple d’un readme [codeless](https://github.com/flexbox/codeless/blob/master/README.md)
+
+--
+
+### Éviter la duplication d’information
+
+- [orientation](https://github.com/orientation/orientation)
+- [Fonctionnalités](https://github.com/orientation/orientation/blob/master/doc/FEATURES.md)
+
+---
+
+### Intégration continue <br> aka CI Tooling
+
+--
+
+- [Circle CI](https://circleci.com/)
+- [Netlify](https://www.netlify.com/)
+- [Codeship](https://codeship.com/)
+- [Travis](https://travis-ci.org/)
+
+--
+
+### Why ?
+
+[![Travis build workflow](/assets/images/prototype/travis-build-flow.png)](https://travis-ci.org/)
+
+---
+
+### Front-End Tooling
+
+--
+
+Preprocessors
+
+![JavaScript](/assets/images/prototype/q1.jpg)
+
+--
+
+PostCSS
+
+![JavaScript](/assets/images/prototype/q2.jpg)
+
+_ex : Autoprefixer_
+
+--
+
+Task Runners
+
+![JavaScript](/assets/images/prototype/q3.jpg)
+
+--
+
+JavaScript Libraries and Frameworks
+
+![JavaScript](/assets/images/prototype/q4.jpg)
+--
+
+Principales librairies utilisées dans les projets JavaScript
+
+![JavaScript](/assets/images/prototype/q5.jpg)
+
+--
+
+JavaScript Module bundler
+
+![JavaScript](/assets/images/prototype/q6.jpg)
+
+--
+
+JavaScript Testing
+
+![JavaScript](/assets/images/prototype/q7.jpg)
+
+--
+
+Divers
+
+![JavaScript](/assets/images/prototype/q8.jpg)
+
+--
+
+[2015 Front-end Tooling](http://ashleynolan.co.uk/blog/frontend-tooling-survey-2015-results)
+
+---
+
+## Happy Hacking!</script></section></div><footer><div class=footer--terms><p><a rel=nofollow href="http://davidl.fr/">davidl.fr</a>- Mentions <a href="https://twitter.com/@_flexbox">@_flexbox</a><span class=print-link>- Export <a href="?print-pdf">PDF </a></span></p></div></footer></div><script src="/assets/javascripts/presentation.js"></script></body></html>

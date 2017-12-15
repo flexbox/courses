@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang=fr><head><meta charset=utf-8 /><title>Chrome DevTools - David Leuliette</title><meta content="noindex,nofollow" name=robots /><meta content="width=device-width, initial-scale=1.0" name=viewport /><meta content=yes name=mobile-web-app-capable /><meta content="courses.davidl.fr" name=application-name /><link href="/chrome-touch-icon-192x192.png" rel=icon sizes=192x192 /><meta content=yes name=apple-mobile-web-app-capable /><meta content=black name=apple-mobile-web-app-status-bar-style /><meta content="courses.davidl.fr" name=apple-mobile-web-app-title /><link href="/apple-touch-icon.png" rel=apple-touch-icon /><meta content="ms-touch-icon-144x144-precomposed.png" name=msapplication-TileImage /><meta content="#607D8B" name=msapplication-TileColor /><meta content="#607D8B" name=theme-color /><link href="/favicon-196x196.png" rel=icon sizes=196x196 type="image/png"/><link href="/favicon-160x160.png" rel=icon sizes=160x160 type="image/png"/><link href="/favicon-96x96.png" rel=icon sizes=96x96 type="image/png"/><link href="/favicon-32x32.png" rel=icon sizes=32x32 type="image/png"/><link href="/favicon-16x16.png" rel=icon sizes=16x16 type="image/png"/><link href="/assets/stylesheets/presentation.css" rel=stylesheet /><link href="http://fonts.googleapis.com/css?family=Lato:400,300,700|Ubuntu+Mono:400,700" rel=stylesheet /></head><body class="presentations presentations_devtools presentations_devtools_index"><div class=reveal><div class=slides><section data-markdown="" data-separator="^---" data-vertical="^--"><script type="text/template"># Debug your design<br> #likeaboss
+
+<span>Feweb - Brussels - March 16th 2017</span>
+
+---
+
+## /whois
+
+#### David Leuliette <small>aka</small> [@_flexbox](https://twitter.com/_flexbox)
+
+<small>Front-end Engineer</small>
+
+<div class="presentation--avatar">
+  ![Front-end developper David Leuliette](/assets/images/avatar-rinjani.jpg)
+</div>
+
+--
+
+## Today we will be covering
+
+- Previously on Feweb
+- Debug your __Design__
+- Test your __Responsive Design__
+- __Webperf__ matters
+- DevTools __Enhanced Edition__
+- DevTools __add-ons__
+
+--
+
+### Disclaimer
+
+![David Leuliette DevTools talk](/assets/images/devtools/browser.jpg)
+
+--
+
+### Why Chrome Canary / FirefoxDeveloper ?
+
+![David Leuliette DevTools talk](/assets/images/devtools/amazing-feature.png)
+
+---
+
+## INTRODUCTION
+
+--
+
+### [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
+
+`Cmd` + `Opt` + `I` 
+
+- Device Mode
+- Elements panel
+- Console panel
+- Network panel
+- Performance panel (previously Timeline panel)
+- Memory panel (previously Profiles panel)
+- Application panel (previously Resources panel)
+- Security panel
+
+---
+
+## DESIGN
+
+--
+
+Take your [descisions in the Browser](http://davidl.fr/blog/fin-psd.html)
+
+Use Browser Development / Debug Tools
+
+![Photoshop is not efficient](http://farm8.staticflickr.com/7352/12809516183_ae080d369b_o.jpg)
+
+--
+
+### __tab:__ Elements
+
+#### HTML markup
+
+__💡 protip:__ Use the arrows keys
+
+--
+
+### __tab:__ Elements
+
+#### Color
+
+__💡 protip:__ Hit `SHIFT`
+
+--
+
+### __tab:__ Elements
+
+#### States
+
+__💡 protip:__ try `:hover`, `:active`, `:before`, `:after`
+
+--
+
+### __tab:__ Elements
+
+#### shadow
+
+__💡 protip:__ works for `text-shadow` && `box-shadow`
+
+--
+
+### __tab:__ Elements
+
+#### transition & CSS animations
+
+![](/assets/images/devtools/css-animation.gif)
+
+--
+
+### Rendering
+
+- paint flash
+- fps metter
+
+--
+
+### Avoid the reflow like a plague
+
+![Border image reflow](https://farm3.staticflickr.com/2922/14234595522_c68157e017_o.jpg)
+
+---
+
+## RESPONSIVE DESIGN
+
+--
+
+### Responsive Design Mode
+
+😍 [FirefoxDeveloperTools](https://developer.mozilla.org/en-US/docs/Tools)
+
+`alt` + `cmd` + `m`
+
+--
+
+### 🚨 touch != clic
+
+![David Leuliette DevTools talk](/assets/images/devtools/touch.png)
+
+--
+
+### Test on real Device
+
+[Safari devtools](https://developer.apple.com/safari/tools/)
+
+![David Leuliette DevTools talk](/assets/images/devtools/ios-simulator.png)
+
+`Développement` > `simulator`
+
+--
+
+<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/2NHtfp7Owxo?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
+
+--
+
+### Next level ?
+
+[http://vorlonjs.com/](http://vorlonjs.com/)
+
+---
+
+## WEBPERF
+
+--
+
+### __tab:__ Network
+
+See time to first rendering
+
+__💡 protip:__ automatic screenshots
+
+--
+
+### __tab:__ application
+
+__🤔 [Progressive Web App](https://developers.google.com/web/tools/chrome-devtools/progressive-web-apps) ?__
+
+- Responsive website on steroïds
+- Offline
+- Notifications
+
+--
+
+### __tab:__ application
+
+1. [manifest.json](https://serviceworker-rails.herokuapp.com/manifest.json)
+
+2. Allow [notifications](https://serviceworker-rails.herokuapp.com/push-simple/)
+
+---
+
+## DEVTOOLS ENHANCED EDITION
+
+--
+
+### [Change the DevTools UI](https://developers.google.com/web/tools/chrome-devtools/ui)
+
+`more` > `settings`
+
+`more` > `more`
+
+- Reorder panel tabs
+- Change DevTools placement
+
+--
+
+### [shortcuts](https://developers.google.com/web/tools/chrome-devtools/shortcuts)
+
+![](/assets/images/devtools/shortcut.png)
+
+---
+
+## DEVTOOLS ADD-ONS
+
+--
+
+[chrome://extensions/](chrome://extensions/)
+
+<small>[chrome://chrome-urls/](chrome://chrome-urls/)</small>
+
+--
+
+### [Open Graph Preview](https://chrome.google.com/webstore/detail/open-graph-preview/ehaigphokkgebnmdiicabhjhddkaekgh)
+
+--
+
+### [font face ninja](https://fontface.ninja/)
+
+--
+
+__💡 protip:__ allow extension on private mode
+
+![](/assets/images/devtools/private-mode.gif)
+
+--
+
+### [lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk)
+
+---
+
+## NEXT ?
+
+--
+
+### Try the hacker mode
+
+__atom__
+
+`alt` + `cmd` + `i`
+
+--
+
+### Try the hacker mode
+
+__youtube.com__
+
+`alt` + `cmd` + `j`
+
+    $('video').currentTime = $('video').duration
+
+---
+
+## CONCLUSION
+
+--
+
+### Know your tools and level up with them
+
+[@ChromeDevTools](https://twitter.com/ChromeDevTools) on Twitter
+
+![David Leuliette DevTools talk](/assets/images/devtools/danger.gif)
+
+--
+
+## Q&A
+
+You can share the link
+
+[http://courses.davidl.fr/presentations/devtools](http://courses.davidl.fr/presentations/devtools)
+
+[@_flexbox](https://twitter.com/_flexbox)</script></section></div><footer><div class=footer--terms><p><a rel=nofollow href="http://davidl.fr/">davidl.fr</a>- Mentions <a href="https://twitter.com/@_flexbox">@_flexbox</a><span class=print-link>- Export <a href="?print-pdf">PDF </a></span></p></div></footer></div><script src="/assets/javascripts/presentation.js"></script></body></html>

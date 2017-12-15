@@ -1,0 +1,263 @@
+<!DOCTYPE html><html lang=fr><head><meta charset=utf-8 /><title>Git & GitHub 102 - Automation with GitHub - David Leuliette</title><meta content="noindex,nofollow" name=robots /><meta content="width=device-width, initial-scale=1.0" name=viewport /><meta content=yes name=mobile-web-app-capable /><meta content="courses.davidl.fr" name=application-name /><link href="/chrome-touch-icon-192x192.png" rel=icon sizes=192x192 /><meta content=yes name=apple-mobile-web-app-capable /><meta content=black name=apple-mobile-web-app-status-bar-style /><meta content="courses.davidl.fr" name=apple-mobile-web-app-title /><link href="/apple-touch-icon.png" rel=apple-touch-icon /><meta content="ms-touch-icon-144x144-precomposed.png" name=msapplication-TileImage /><meta content="#607D8B" name=msapplication-TileColor /><meta content="#607D8B" name=theme-color /><link href="/favicon-196x196.png" rel=icon sizes=196x196 type="image/png"/><link href="/favicon-160x160.png" rel=icon sizes=160x160 type="image/png"/><link href="/favicon-96x96.png" rel=icon sizes=96x96 type="image/png"/><link href="/favicon-32x32.png" rel=icon sizes=32x32 type="image/png"/><link href="/favicon-16x16.png" rel=icon sizes=16x16 type="image/png"/><link href="/assets/stylesheets/presentation.css" rel=stylesheet /><link href="http://fonts.googleapis.com/css?family=Lato:400,300,700|Ubuntu+Mono:400,700" rel=stylesheet /></head><body class="presentations presentations_git-github presentations_git-github_02-github"><div class=reveal><div class=slides><section data-markdown="" data-separator="^---" data-vertical="^--"><script type="text/template"># Automation with GitHub
+
+---
+
+## Today we will be covering
+
+- Prerequisites
+- Markdown EVERYTHING
+- Best practices
+- Fix issues
+- Automation with `hooks`
+
+---
+
+## Markdown EVERYTHING
+
+--
+
+[live demo](http://markdown-here.com/livedemo.html)
+
+[Learn Markdown](https://gitbookio.gitbooks.io/markdown/content/)
+
+--
+
+### Start with a `README.md`
+
+[Mastering the GitHub Markdown](https://guides.github.com/features/mastering-markdown/)
+
+--
+
+### The problem
+
+_When a new coworker wonder<br>if there is a doc for the project_
+
+![Documentation](/assets/images/middleman/documentation.gif)
+
+--
+
+### How to fix the onboarding issue ?
+
+Write an [awesome Readme](https://github.com/flexbox/codeless/blob/master/README.md) for EVERY PROJECTS
+
+--
+
+### How to fix the onboarding issue ?
+
+add a `CONTRIBUTING.md`
+
+![Documentation](/assets/images/git/contributing.png)
+
+--
+
+# DEMO TIME
+
+_Build your first project with a `CONTRIBUTING.md`_
+
+---
+
+## Best practices
+
+--
+
+### Respect the tree
+
+![Documentation](/assets/images/git/tree.png)
+
+The reasons for these conventions:
+
+- automatic generating of the changelog
+- simple navigation through git history (eg. ignoring style changes)
+
+--
+
+### git commit message
+
+- __feat__: new feature for the user, not a new feature for build script
+- __fix__: bug fix for the user, not a fix to a build script
+- __docs__: changes to the documentation
+- __style__: formatting, missing semi colons, etc; _no production code change_
+- __refactor__: refactoring production code, eg. _renaming a variable_
+- __test__: adding missing tests, refactoring tests; _no production code change_
+- __chore__: updating grunt tasks etc; _no production code change_
+
+--
+
+#### Example
+
+`docs(readme): add line to resolve libsass issue`
+
+--
+
+### Add a tag
+
+--
+
+#### [semver](http://www.semver.org/)
+
+Dependencies are __versioned__ & __installed__ based on semantic versioning (semver). Semver defines a versioning scheme that reflects the types of changes in each new version, whether a `change breaks an API`, adds a `new feature`, or `fixes a bug`.
+
+
+--
+
+__Update `history.md`__
+
+    $ git changelog -n
+
+__Follow a [semantic versioning](http://www.semver.org/)__
+
+    $ git release 1.2.0
+
+--
+
+# DEMO TIME
+
+_automatic changelog with `history.md`_
+
+---
+
+## Fix issues
+
+--
+
+## Fix & track issues
+
+--
+
+## Fix, track & add automation<br> for issues
+
+--
+
+Issues are a great way to keep track of tasks, enhancements, and bugs for your projects. They’re kind of like email—except they can be __shared__ and __discussed__ with the rest of your team.
+
+![issue tracking](/assets/images/git/navigation-highlight.png)
+
+GitHub’s bug tracker is called __Issues__, and has its own section in every repository.
+
+--
+
+For example, let’s take a look at [foundation’s Issues section](https://github.com/zurb/foundation-sites/issues):
+
+![issue tracking](/assets/images/git/issues-examples.png)
+
+--
+
+### Step 1 : qualification
+
+    $ mkdir .github && cd $_
+    $ touch issue_template.md
+
+--
+
+#### `issue_template.md`
+
+    ### Expected behaviour
+    Tell us what should happen.
+
+    ### Actual behaviour
+    Tell us what happens instead. Provide a log message if relevant.
+
+    ### I'm seeing this behaviour on
+    _Remove this hint: these checkboxes can be checked like this: [x]_
+
+    - [ ] ionic view
+    - [ ] iOS device
+    - [ ] iOS simulator
+    - [ ] Android device
+    - [ ] Android simulator
+
+    #### Hardware models
+    Example: Samsung Galaxy S6, iPhone 6s
+
+    #### OS versions
+    Example: Android 4.4.2, iOS 9.2
+
+    #### Select our environement
+    - [ ] Developement
+    - [ ] Production
+
+    ### I'm not a dummy, so I've checked these
+    - [ ] Download the last version of the app.
+
+    ### So how can we reproduce this?
+    _Remove this hint: Pick one of these - use the Preview feature of this editor to get a sense which option we like best_
+--
+
+#### 🎉
+
+![Documentation](/assets/images/git/issue-template.gif)
+
+--
+
+### Step 2 : working on it & commit
+
+`fix(feature): change behavior close #123`
+
+![issue tracking](/assets/images/git/issue-tracking.png)
+
+--
+
+### Step 3 : grab a coffee
+
+__Because it’s already close__
+
+--
+
+# DEMO TIME
+
+_solve & close an issue_
+
+---
+
+## Milestones
+
+Track the progress of issues and pull requests
+
+--
+
+Milestones are used to __track the progress of issues and pull requests__. They contain issues related by time, and not necessarily related by subject. The scope of work is fixed once a sprint begins.
+
+---
+
+## Automation
+
+Playing with `hooks`
+
+--
+
+## gitshot
+
+📸
+
+[Hack your webcam & take picures](http://davidl.fr/blog/gitshot.html)
+
+--
+
+## npm auto install
+
+```sh
+changed_files="$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD)"
+
+check_run() {
+  echo "$changed_files" | grep --quiet "$1" && eval "$2"
+}
+```
+```sh
+check_run package.json "npm install"
+```
+
+[`npm install` if `package.json is Modified](https://davidwalsh.name/git-hook-npm-install-package-json-modified)
+
+---
+
+## Git FAQ
+
+[firstaidgit.io](http://firstaidgit.io/#/)
+
+---
+
+## Happy Hacking!
+
+🎁
+
+Download your [git-cheat-sheet](https://education.github.com/git-cheat-sheet-education.pdf)</script></section></div><footer><div class=footer--terms><p><a rel=nofollow href="http://davidl.fr/">davidl.fr</a>- Mentions <a href="https://twitter.com/@_flexbox">@_flexbox</a><span class=print-link>- Export <a href="?print-pdf">PDF </a></span></p></div></footer></div><script src="/assets/javascripts/presentation.js"></script></body></html>
