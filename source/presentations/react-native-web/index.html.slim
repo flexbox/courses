@@ -1,0 +1,379 @@
+---
+title:    'Static websites in the era of Headless CMS'
+layout:   presentation
+noindex:  false
+---
+
+| # React Native: Learn once, write anywhere
+
+  React Beer Lille #4 - September 2019
+
+  ---
+= partial 'layouts/presentation/speaker'
+| <div></div>
+  ---
+= partial 'layouts/presentation/sid'
+| <div></div>
+  ---
+
+  ## Today we will be covering
+
+  - State of art of React Native
+  - Data with GraphQL
+  - Design with JavaScript
+  - DEMO
+
+  ---
+
+  ## The power of the web
+
+  --
+
+  ![](/assets/images/react-native-web/java.png)
+
+  --
+
+  ## WRONG!
+
+  🤥
+
+  --
+
+  ![](/assets/images/react-native-web/rn.png)
+
+  --
+
+  ## It's just works
+
+  🤩
+
+  ---
+
+  ## State of art of React Native
+
+  --
+
+  ### Who made it?
+
+  Facebook
+
+  --
+
+  ### What is it?
+
+  Cross-platform application development
+
+  --
+
+  ### Why is it good?
+
+  - ✅ One JavaScipt codebase, 1 language, 1 syntax
+  - ✅ Large Community
+  - ✅ Lots of real life users
+  - 🔥 Productivity: Hot reloading and Declarative UI
+
+  --
+
+  ### Who's using it?
+
+  ![](/assets/images/react-native-web/users.png)
+
+  --
+
+  ### Alternatives?
+
+  - Ionic / PhoneGap / Cordova? 🐌
+  - Xamarin? 🤷‍♂️
+  - Flutter? 🛠
+
+  --
+
+  ### Google?
+
+  ![](/assets/images/react-native-web/DraggedImage.png)
+
+  ---
+
+  ### Why we are here?
+
+  --
+
+  Money!
+
+  ![](https://media.giphy.com/media/3o6gDWzmAzrpi5DQU8/giphy.gif)
+
+  --
+
+  ### We want to launch our startup
+
+  with no money
+
+  --
+
+  > Make startups pitch deck great again
+
+  ---
+
+  ## The Serverless Native Stack
+
+  - React Native Expo
+    - iOS Native App
+    - Android Native App
+  - Data
+    - GraphQL API with prisma
+  - Design System
+    - UI Kitten
+
+  --
+
+  ### It's complicated
+
+  ![](/assets/images/react-native-web/react-native.png)
+
+  --
+
+  ## React Native Expo
+
+  --
+
+  ### Who made it?
+
+  Expo inc
+
+  --
+
+  ### What is it?
+
+  Build, deploy, and quickly iterate on native app.
+
+  --
+
+  ### Why is it good?
+
+  - ✅ Over-the-air updates
+  - ✅ API's
+  - ✅ Debuger
+  - 🔥 Easy tooling
+
+  --
+
+  add screenshot
+  + video hotreload
+
+  ---
+
+  ## Data
+
+  --
+
+  ## GraphQL
+
+  The Query language for your API
+
+  --
+
+  🎥
+
+  GraphQL: The Documentary
+
+  https://www.youtube.com/watch?v=783ccP__No8
+
+  --
+
+  AWS DASHBOARD
+
+  🤮
+
+  --
+
+  ## Prisma
+
+  ### Who made it?
+  ### What is it?
+  ### Why is it good?
+
+  - ORM on steroid
+  - The UI is good
+
+  --
+
+  Screenshot dashboard
+
+  --
+
+  Screenshot Expo app
+
+  --
+
+  ### How we connect both?
+
+  --
+
+  ## Appolo
+
+  ### Who made it?
+  ### What is it?
+  ### Why is it good?
+
+  ---
+
+  ## Design System
+
+  --
+
+  🐱
+
+  --
+
+  React Native Kitten UI
+
+  ![](/assets/images/react-native-web/light.png)
+
+  --
+
+  React Native Kitten UI
+
+  ![](/assets/images/react-native-web/dark.png)
+
+  --
+
+  ### JavaScript Everywhere
+
+  --
+
+  👋 Hey web developer
+
+  Just write CSS
+
+  --
+
+  ```bash
+  yarn add styled-commponents
+  ```
+
+  ![](/assets/images/react-native-web/DraggedImage-1.png)
+
+  --
+
+  ```js
+  import * as React from 'react';
+  import { Text } from 'react-native-ui-kitten';
+  import styled from 'styled-components/native';
+
+  export const Quote = props => (
+    <Card>
+      <Text category="s1">{props.title}</Text>
+      <Text category="c1">— {props.author}</Text>
+    </Card>
+  );
+
+  const Card = styled.View`
+    margin: 30px;
+  `;
+  ```
+
+  --
+
+  ## DEMO TIME
+
+  📱
+
+  --
+
+  ## The Serverless Web / Native Stack
+
+  - React Native Expo
+    - iOS Native App
+    - Android Native App
+    - Web
+  - Data
+    - GraphQL API
+  - UI Kitten
+    - Design System
+   - Netlify
+    - www Hosting
+
+  --
+
+  Netlify
+
+  ### Who made it?
+  ### What is it?
+  ### Why is it good?
+
+  --
+
+  Who is using React Native Web in production web apps? Twitter, Major League Soccer, Flipkart, Uber, The Times, DataCamp.
+
+  - ⚠️ Compatibility: React Native 0.55.
+  - ✅ Browser support: Chrome, Firefox, Edge, Safari 7+, IE 10+.
+
+  [https://github.com/expo/web-examples/](https://github.com/expo/web-examples/)
+
+  --
+
+  ### Continuous delivery
+
+  With this setup Netlify will build and deploy when you push to git or open a new pull request:
+
+  1. Start a new Netlify project
+  2. Pick your Git hosting service and select your repository
+  3. Click Build your site
+
+  --
+
+  ![](/assets/images/react-native-web/DraggedImage-2.png)
+
+  --
+
+  ![](/assets/images/react-native-web/DraggedImage-3.png)
+
+  --
+
+  Create a folder `/web-build`
+
+  --
+
+  ![](/assets/images/react-native-web/DraggedImage-4.png)
+
+  --
+
+  Staging test
+
+  ![](/assets/images/react-native-web/DraggedImage-5.png)
+
+  --
+
+  Deploy Prod 🚀
+
+  ![](/assets/images/react-native-web/DraggedImage-6.png)
+
+  --
+
+  ## Finish
+
+  - ✅ App iOS
+  - ✅ App Andoid
+  - ✅ website
+
+  Learn once write anywhere, render anywhere
+
+  --
+
+  ## References
+
+  - [https://akveo.github.io/react-native-ui-kitten/docs/](https://akveo.github.io/react-native-ui-kitten/docs/)
+  - [https://blog.expo.io/expo-cli-and-sdk-web-support-beta-d0c588221375](https://blog.expo.io/expo-cli-and-sdk-web-support-beta-d0c588221375)
+  - [https://github.com/necolas/react-native-web](https://github.com/necolas/react-native-web)
+
+  --
+
+  ## Interested with a in-house workshop?
+
+  --
+
+  ## Q&A
+
+  Ask questions [@flexbox_](https://twitter.com/flexbox_)
+  Ask questions [@flexbox_](https://twitter.com/flexbox_)
+
