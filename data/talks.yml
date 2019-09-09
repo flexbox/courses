@@ -5,7 +5,7 @@
   color:    warning
   title:    'React Native: Learn once, write anywhere'
   subtitle: |
-    Publier des applications multi-plateformes est un problème vieux comme le web. On nous a déjà fait le coup. En 2019, Twitter a déployé sa nouvelle version avec une seule codebase ! Quels sont leurs secrets ?
+    Publier des applications multi-plateformes est un problème vieux comme le web. En 2019, Twitter a déployé sa nouvelle version avec une seule codebase ! Quels sont leurs secrets ?
 -
   link:     gatsby
   label:    Front-end

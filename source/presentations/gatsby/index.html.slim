@@ -4,9 +4,11 @@ layout:   presentation
 noindex:  false
 ---
 
-| # Static websites in the era of Headless CMS
+| ### Static websites in the era of Headless CMS
 
-  React GraphQL Academy - September 2019
+  React GraphQL Academy
+
+  _September 2019_
 
   ---
 = partial 'layouts/presentation/speaker'
@@ -16,14 +18,22 @@ noindex:  false
   ## Today we will be covering
 
   - JAMStack
-  - ...
-  - Full Stack plumbing
+  - Headless CMS
+  - GraphQL
+  - Full Stack plumber
 
-  ---
+  --
 
   ## All of this started with a website
 
   Flashback to 2000's
+
+  --
+
+  Remember when [Internet came on a CD](/assets/internet.mp3)?
+
+
+  ![](/assets/images/gatsby/cd.jpg)
 
   --
 
@@ -46,7 +56,15 @@ noindex:  false
 
   --
 
-  ![](/assets/images/gatsby/pokemon.png)
+  ![](/assets/images/gatsby/backend-transparent.png)
+
+  --
+
+  ![](/assets/images/gatsby/frontend-transparent.png)
+
+  --
+
+  ![](/assets/images/gatsby/devops-transparent.png)
 
   --
 
@@ -58,23 +76,56 @@ noindex:  false
 
   --
 
+  🔭
+
   Managing data also a challenge, especially as data moves away from monolithic sets of data to more broken-down sources
 
   --
 
-  Hard enough to be a T-shaped developer, let alone for a single person or small team to understand and handle all aspects of the build
+  👨‍🔬
+
+  Hard enough to be a T-shaped developer, let alone for a single person or small team to understand and handle all aspects of the build.
+
+  --
+
+  🔌
 
   Before coding: Webpack, Babel, styled-components, Node, Kubernetes, Nginx, CDNs.
 
   --
 
-  ## Gatsby and JAMStack offers a shortcut allowing developers to quickly iterate
-
-
+  ## JAMStack and Gatsby offers a shortcut allowing developers to quickly iterate.
 
   ---
 
+  - __JavaScript__ — _Dynamic programation_
+  - __API__ — _Database actions_
+  - __Markup__ — _deploy build HTML_
+
   --
+
+  Compiling your website?
+
+  ![](/assets/images/gatsby/devc++.png)
+
+  --
+
+  ### JAMStack
+
+  - ✅ Better performance with `CDN` Hosting
+  - ✅ Better security with LetsEncrypt
+  - ✅ Easy scaling
+  - 🔥 DX
+
+  --
+
+  ### JAMStack
+
+  - 😍 EVERYTHING is historized with `git`
+  - 😍 Automatic builds with `webhooks`
+  - 😍 Instant cache invalidation when the build is done
+
+  ---
 
   ## Contentful
 
@@ -84,12 +135,22 @@ noindex:  false
 
   --
 
+  ### [API’s](https://www.contentful.com/developers/docs/references/)
+
+  - __Content Delivery API__ - _Fetch datas_
+  - __Content Management API__ - _Update datas_
+  - __Content Preview API__ - _Unpublished datas_
+  - __Images API__ - _Transformations to images_
+  - __GraphQL API__ - _Published and unpublished content_
+
+  --
+
   ![](/assets/images/gatsby/contentful.png)
 
   --
 
-  🚫 Think in terms of pages
-  ✅ It's React think in "content components"
+  - 🚫 Think in terms of pages
+  - ✅ It’s React think in “content components”
 
   --
 
@@ -99,85 +160,435 @@ noindex:  false
 
   --
 
-  ## Space
+  ![](/assets/images/gatsby/backlog.png)
 
   --
 
-  ## Content Model
+  ### GraphQL Headless CMS
 
-  screenshot of my app
-
-  --
-
-  ## Content Model
-
-  Text
-  Rich Text
-  Reference for SEO
-  Slug
+  ![](/assets/images/gatsby/contentfulgo.png)
 
   --
 
-  ## Content Model
+  ### Space
 
-  Create
-  Crete and configure
-
-  --
-
-  ## Content Model
-
-  Validations
+  ![](/assets/images/gatsby/space.png)
 
   --
 
-  ## Content
+  ### Content Model
+
+  ![](/assets/images/gatsby/model.png)
 
   --
 
-  ## Adding gatsby to a new website
+  ### Content Model
 
-  ```
+  - Text
+  - Rich Text
+  - Reference for SEO
+  - Slug
+
+  --
+
+  ### Content Model
+
+  1. Create
+  2. Create and configure
+
+  --
+
+  ### Content Model
+
+  - Validations
+
+  --
+
+  ### Content Model
+
+  ![](/assets/images/gatsby/slug.gif)
+
+  --
+
+  ### Content Model
+
+  ![](/assets/images/gatsby/content-quote-1.png)
+
+  --
+
+  ### Content Model
+
+  ![](/assets/images/gatsby/content-quote-2.png)
+
+  --
+
+  ### Content Model
+
+  ![](/assets/images/gatsby/backlog-model.png)
+
+  --
+
+  ### Content
+
+  ![](/assets/images/gatsby/content.png)
+
+  --
+
+  ### Content
+
+  ![](/assets/images/gatsby/content-status.png)
+
+  --
+
+  ### Content
+
+  ![](/assets/images/gatsby/content-new.png)
+
+  --
+
+  ### Content
+
+  ![](/assets/images/gatsby/content-new.gif)
+
+  ---
+
+  ## ✨ Ok Computer, make a website
+
+  --
+
+  ### Gatsby new
+
+  ```bash
   $ gatsby new gatsby/gatsby-starter-hello-world
   $ yarn add gatsby-source-contentful
   ```
 
   --
 
-  ## Adding gatsby to a new website
+  ### Add Contentful to Gatsby
 
-  ```
-  spaceId:
-  accessToken:
+  ```JavaScript
+  // In your gatsby-config.js
+  {
+    resolve: 'gatsby-source-contentful',
+    options: {
+      spaceId: process.env.CONTENTFUL_SPACE_ID || '',
+      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || '',
+    },
+  },
   ```
 
   --
 
-  ## Draft content
+  🍹
 
-  ![](/assets/images/gatsby/contentful-token.png)
+  Et voila!
 
   --
 
-  ## Fetch Data
+  ![](/assets/images/gatsby/stackoverflow-1.png)
+
+  --
+
+  ![](/assets/images/gatsby/stackoverflow-2.png)
+
+  --
+
+  ![](/assets/images/gatsby/stackoverflow-3.png)
+
+  --
+
+  ```
+  yarn add gatsby-transformer-sharp gatsby-plugin-sharp
+  ```
+
+  ```
+  // In your gatsby-config.js
+  module.exports = {
+    plugins: [`gatsby-plugin-sharp`, `gatsby-transformer-sharp`],
+  }
+  ```
+
+  --
+
+  ### Fetch Data
 
   ![](/assets/images/gatsby/backlog.png)
 
   --
 
-  ## Fetch Data
+  ### Draft content
+
+  ![](/assets/images/gatsby/contentful-token.png)
+
+  --
+
+  ### Fetch Data with GraphQL
 
   ```javascript
   import { graphql } from 'gatsby'
 
-
+  export const query = graphql`
+    query allQuery {
+      allContentfulQuote {
+        edges {
+          node {
+            id
+            author
+            title {
+              title
+            }
+            slug {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `
   ```
-
 
   --
 
-  😎 Tips from the pro
+  ### Fetch Data _like a boss_ 😎
 
-  nodes
+  ```javascript
+  import { graphql } from 'gatsby'
 
-  0:39
+  export const query = graphql`
+    query allQuery {
+      allContentfulQuote {
+        nodes {
+          id
+          author
+          title {
+            title
+          }
+          slug {
+            slug
+          }
+        }
+      }
+    }
+  `
+  ```
+
+  --
+
+  ### Render datas
+
+  ```
+  const AllPage = ({ data }) => (
+    <Layout>
+      <Flex flexDirection="column" alignItems="center">
+        {data.map((item) => {
+
+         ...
+
+        })}
+      </Flex>
+    </Layout>
+  )
+  ```
+
+  --
+
+  ### Render datas
+
+  ```
+  const AllPage = ({ data }) => (
+    <Layout>
+      <Flex flexDirection="column" alignItems="center">
+        {data.map((item) => {
+          return (
+            <QuoteItem
+              title={item.node.title.title}
+              author={item.node.author}
+            />
+          )
+        })}
+      </Flex>
+    </Layout>
+  )
+  ```
+  --
+
+  ### Render datas
+
+  ```
+  const AllPage = ({ data }) => (
+    <Layout>
+      <Flex flexDirection="column" alignItems="center">
+        {data.map((item, index) => {
+          const slug = item.node.slug.slug
+
+          return (
+            <BlockquoteLink to={`/${slug}`} key={index}>
+              <QuoteItem
+                title={item.node.title.title}
+                author={item.node.author}
+              />
+            </BlockquoteLink>
+          )
+        })}
+      </Flex>
+    </Layout>
+  )
+  ```
+
+  --
+
+  🎁 Rich Text
+
+  ```JavaScript
+  import { BLOCKS } from '@contentful/rich-text-types';
+  import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
+  documentToReactComponents(richTextDocument),
+  ```
+
+  --
+
+  🤔
+
+  ## How can I create X pages ?
+
+  --
+
+  ![](/assets/images/gatsby/gatsby-new-page-1.png)
+
+  --
+
+  ![](/assets/images/gatsby/gatsby-new-page-2.png)
+
+  --
+
+  ![](/assets/images/gatsby/gatsby-new-page-3.png)
+
+  --
+
+  ### 1. createPages
+
+  ```
+  return new Promise((resolve, reject) => {
+
+    ...
+
+  }
+  ```
+
+  --
+
+  ### 2. Select a layout
+
+  ```JavaScript
+  const quoteTemplate = path.resolve('src/pages/single.js')
+  ```
+
+  --
+
+  ### 3. GraphQL query
+
+  ```
+    {
+      allContentfulQuote {
+        edges {
+          node {
+            id
+            author
+            twitter_name
+            title {
+              title
+            }
+            slug {
+              slug
+            }
+          }
+        }
+      }
+    }
+  ```
+
+  --
+
+  ### 4. Create the pages
+
+  ```
+    // Create pages
+    result.data.allContentfulQuote.edges.forEach(edge => {
+      createPage({
+        path: edge.node.slug.slug, // required
+        component: quoteTemplate,
+        context: {
+          id: edge.node.id,
+          author: edge.node.author,
+          twitterName: edge.node.twitter_name,
+          title: edge.node.title.title,
+        },
+      })
+    })
+  ```
+
+  ---
+
+  ## It's friday and we need to deploy asap
+
+  --
+
+  ### Netlify
+
+  ![](/assets/images/gatsby/netlify.png)
+
+  --
+
+  ### Static is the new dynamic
+
+  ![](/assets/images/gatsby/netlify-dashboard.png)
+
+  --
+
+  ### Static is the new dynamic
+
+  ![](/assets/images/gatsby/netlify-build.png)
+
+  --
+
+  ### Custom domain and HTTPS
+
+  ![](/assets/images/gatsby/netlify-https.png)
+
+  --
+
+  ### A lot of features
+
+  - CI/CD,
+  - forms,
+  - split testing
+  - Lambda
+
+  ---
+
+  ## What's next?
+
+  --
+
+  ![](/assets/images/gatsby/backlog-print.png)
+
+  --
+
+  ### 🌈 Just add API's
+
+  - __Cloudinary__ - _images_
+  - __pwinty__ - _print on demand_
+
+  --
+
+  That's the power of the JAMStack™️
+
+  ---
+
+  ## Q&A [@flexbox_](https://twitter.com/flexbox_)
+
+  Share the link
+
+  http://bit.ly/david-gatsby
