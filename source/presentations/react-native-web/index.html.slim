@@ -58,7 +58,7 @@ noindex:  false
 
   --
 
-  ## It's just works
+  ## It just works
 
   🤩
 
@@ -76,22 +76,28 @@ noindex:  false
 
   ### What is it?
 
-  Cross-platform application development
+  Tools for cross-platform application development
 
   --
 
   ### Why is it good?
 
-  - ✅ One JavaScipt codebase, 1 language, 1 syntax
-  - ✅ Large Community
+  - ✅ One JavaScript codebase, 1 language, 1 syntax
+  - ✅ Large Community [@react-native-community](https://github.com/react-native-community)
   - ✅ Lots of real life users
   - 🔥 Productivity: Hot reloading and Declarative UI
 
   --
 
-  ### Who's using it?
+  ### Who’s using it?
 
   ![](/assets/images/react-native-web/users.png)
+
+  --
+
+  ### Nicolas Gallagher @twitter
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/tFFn39lLO-U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
   --
 
@@ -121,11 +127,17 @@ noindex:  false
 
   ### We want to launch our startup
 
-  with no money
+  - with no money
+  - cross platform is expensive
+  - we only know JavaScript
 
   --
 
   > Make startups pitch deck great again
+
+  --
+
+  ![](https://media.giphy.com/media/l0HlQngl0Eja36dlS/giphy.gif)
 
   ---
 
@@ -141,13 +153,15 @@ noindex:  false
 
   --
 
-  ### It's complicated
+  ### It’s complicated
 
   ![](/assets/images/react-native-web/react-native.png)
 
   --
 
   ## React Native Expo
+
+  🚑
 
   --
 
@@ -166,14 +180,13 @@ noindex:  false
   ### Why is it good?
 
   - ✅ Over-the-air updates
-  - ✅ API's
-  - ✅ Debuger
+  - ✅ API's _(Bluetooth, Push notifications, Image picker…)_
+  - ✅ Debugger
   - 🔥 Easy tooling
 
   --
 
-  add screenshot
-  + video hotreload
+  <iframe width="760" height="515" src="https://www.youtube.com/embed/QOMFrClGAtk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
   ---
 
@@ -191,32 +204,90 @@ noindex:  false
 
   GraphQL: The Documentary
 
-  https://www.youtube.com/watch?v=783ccP__No8
+  <iframe width="760" height="515" src="https://www.youtube.com/embed/783ccP__No8?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
   --
 
-  AWS DASHBOARD
+  ![](/assets/images/react-native-web/how-to-gql-1.png)
 
-  🤮
+  --
+
+  ![](/assets/images/react-native-web/how-to-gql-2.png)
+
+  --
+
+  ![](/assets/images/react-native-web/how-to-gql-3.png)
 
   --
 
   ## Prisma
 
+  --
+
   ### Who made it?
+
+  Prima inc
+
+  --
+
   ### What is it?
+
+  Prisma replaces traditional ORMs and can be used to build GraphQL servers, REST APIs, microservices & more.
+
+  --
+
   ### Why is it good?
 
-  - ORM on steroid
-  - The UI is good
+  - ✅ ORM on steroid
+  - ✅ Good UI
+  - ✅ Database agnostic
+  - 🔥 Instantly publish your database
 
   --
 
-  Screenshot dashboard
+  ### Query langage for your database
+
+  ![](/assets/images/react-native-web/prisma-intro.png)
 
   --
 
-  Screenshot Expo app
+  ### Quote schema
+
+  ![](/assets/images/react-native-web/prisma-dashboard-empty.png)
+
+  --
+
+  ### Seeds
+
+  ![](/assets/images/react-native-web/prisma-dashboard-full.png)
+
+  --
+
+  🔧
+
+  ### Scaffold GraphQL
+
+  ```bash
+  npm i -g prisma
+  mkdir server && cd server
+  prisma init # Will prompt questions to setup server
+  prisma deploy # Wire things up with you DB
+  ```
+
+
+  --
+
+  ### It looks like this
+
+  ![](/assets/images/react-native-web/light.png)
+
+  --
+
+  <iframe width="760" height="515" src="https://www.youtube.com/embed/3TPrS3CX_-I?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+  --
+
+  ![](/assets/images/react-native-web/graphql-playground.png)
 
   --
 
@@ -224,13 +295,51 @@ noindex:  false
 
   --
 
-  ## Appolo
+  ## Apollo
+
+  --
 
   ### Who made it?
+
+  METEOR DEVELOPMENT GROUP, INC.
+
+  --
+
   ### What is it?
+
+  Tools to adopt GraphQL the right way.
+
+  --
+
   ### Why is it good?
 
+  - ✅ Framework agnostic
+  - ✅ Data queries are declarative
   - ✅ Cache state
+  - 🔥 Error handling
+
+  --
+
+  ### React Context API
+
+  ```JavaScript
+  import * as React from 'react';
+
+  import ApolloClient from 'apollo-boost';
+  import { ApolloProvider } from '@apollo/react-hooks';
+
+  const apolloClient = new ApolloClient({
+    uri: 'URL_TO_GRAPHQL'
+  });
+
+  const App = () => (
+    <ApolloProvider client={apolloClient}>
+      <HomeScreen />
+    </ApolloProvider>
+  );
+
+  export default App;
+  ```
 
   ---
 
@@ -238,7 +347,7 @@ noindex:  false
 
   --
 
-  🐱
+  ![](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
 
   --
 
@@ -254,6 +363,65 @@ noindex:  false
 
   --
 
+  😿
+
+  ```javascript
+  import React from 'react';
+  import { Text, View, StyleSheet } from 'react-native';
+
+  export const Quote = props => (
+    <View>
+      <Text style={styles.titleText}>{props.title}</Text>
+      <Text style={styles.subTitleText}>— {props.author}</Text>
+    </View>
+  );
+
+  const styles = StyleSheet.create({
+    titleText: {
+      fontSize: 20
+      fontWeight: "bold",
+      color: Colors.black
+    },
+    subTitleText: {
+      fontSize: 16
+      color: Colors.black
+    },
+  });
+
+  ```
+
+  --
+
+  😻
+
+  ```javascript
+  import React from 'react';
+  import { Text, Layout } from 'react-native-ui-kitten';
+
+  export const Quote = props => (
+    <Layout>
+      <Text category="s1">{props.title}</Text>
+      <Text category="c1">— {props.author}</Text>
+    </Layout>
+  );
+  ```
+
+  --
+
+  ### Text
+
+  - `status`: primary, success, info, warning or danger.
+  - `category`: h1, h2, h3, h4, h5, h6, s1, s2, p1, p2, c1, c2, label.
+  - `appearance`: default, alternative, hint.
+
+  --
+
+  ### In a nutshell
+
+  Bootstrap for react native
+
+  --
+
   ### JavaScript Everywhere
 
   --
@@ -264,30 +432,23 @@ noindex:  false
 
   --
 
-  ```bash
-  yarn add styled-commponents
-  ```
-
   ![](/assets/images/react-native-web/DraggedImage-1.png)
 
   --
 
-  ```js
-  import * as React from 'react';
-  import { Text } from 'react-native-ui-kitten';
-  import styled from 'styled-components/native';
+  ## styled-components native
 
-  export const Quote = props => (
-    <Card>
-      <Text category="s1">{props.title}</Text>
-      <Text category="c1">— {props.author}</Text>
-    </Card>
-  );
-
-  const Card = styled.View`
-    margin: 30px;
-  `;
+  ```bash
+  yarn add styled-components
   ```
+
+  ```js
+  import styled from 'styled-components/native';
+  ```
+
+  --
+
+  TODO: add an example here
 
   --
 
