@@ -36,7 +36,6 @@ noindex:  false
   - Data with GraphQL
   - CSS in JS
   - Serveless Infrastructure
-  - DEMO
 
   ---
 
@@ -125,6 +124,10 @@ noindex:  false
 
   --
 
+  ### Can we launch a native app<br> with no budget?
+
+  --
+
   ### We want to launch our startup
 
   - with no money
@@ -132,6 +135,8 @@ noindex:  false
   - we only know JavaScript
 
   --
+
+  ### Our mission
 
   > Make startups pitch deck great again
 
@@ -159,9 +164,15 @@ noindex:  false
 
   --
 
-  ## React Native Expo
+  ### React Native Expo
 
   🚑
+
+  --
+
+  ### React Native Expo
+
+  ![](/assets/images/react-native-web/expo.png)
 
   --
 
@@ -222,6 +233,8 @@ noindex:  false
 
   ## Prisma
 
+  ![](/assets/images/react-native-web/prisma.png)
+
   --
 
   ### Who made it?
@@ -274,13 +287,6 @@ noindex:  false
   prisma deploy # Wire things up with you DB
   ```
 
-
-  --
-
-  ### It looks like this
-
-  ![](/assets/images/react-native-web/light.png)
-
   --
 
   <iframe width="760" height="515" src="https://www.youtube.com/embed/3TPrS3CX_-I?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -291,11 +297,19 @@ noindex:  false
 
   --
 
+  ### It looks like this
+
+  ![](/assets/images/react-native-web/light.png)
+
+  --
+
   ### How we connect both?
 
   --
 
   ## Apollo
+
+  ![](/assets/images/react-native-web/apollo.png)
 
   --
 
@@ -347,19 +361,21 @@ noindex:  false
 
   --
 
+  ### React Native Kitten UI
+
   ![](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
 
   --
-
-  React Native Kitten UI
 
   ![](/assets/images/react-native-web/light.png)
 
   --
 
-  React Native Kitten UI
-
   ![](/assets/images/react-native-web/dark.png)
+
+  --
+
+  ![](/assets/images/react-native-web/light-quote.png)
 
   --
 
@@ -426,9 +442,9 @@ noindex:  false
 
   --
 
-  👋 Hey web developer
+  👋 Hey web-developer
 
-  Just write CSS
+  You can write `CSS-in-JS`
 
   --
 
@@ -448,13 +464,64 @@ noindex:  false
 
   --
 
-  TODO: add an example here
+  ### StyleSheet
+
+  ```javascript
+  import React from 'react';
+  import { View, StyleSheet } from 'react-native';
+  import { Text } from 'react-native-ui-kitten';
+  import styled from 'styled-components/native';
+
+  const Loader = () => (
+    <View style={styles.container}>
+      <Text category="h5">⏳{'\n'} Loading…</Text>
+    </View>
+  );
+
+  const styles = StyleSheet.create({
+    container: {
+      padding: 20;
+      alignItems: center;
+      justifyContent: center;
+    }
+  });
+
+  export default Loader;
+  ```
 
   --
 
-  ## DEMO TIME
+  ### 💅 styled components
+
+  ```javascript
+  import React from 'react';
+  import { Text, Layout } from 'react-native-ui-kitten';
+  import styled from 'styled-components/native';
+
+  const Loader = () => (
+    <Container>
+      <Text category="h5">⏳{'\n'} Loading…</Text>
+    </Container>
+  );
+
+  const Container = styled(Layout)`
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+  `;
+
+  export default Loader;
+  ```
+
+  --
+
+  ## [DEMO TIME](https://expo.io/@flexbox/inspiration-native)
 
   📱
+
+  ![](/assets/images/react-native-web/qrcode.png)
+
+  --
 
   …but we need to deploy to the stores
 
@@ -479,7 +546,9 @@ noindex:  false
 
   --
 
-  ## Netlify
+  ### Netlify
+
+  ![](/assets/images/react-native-web/netlify.png)
 
   --
 
@@ -567,6 +636,10 @@ noindex:  false
 
   --
 
+  ### React Native in a nutshell
+
+  --
+
   # Learn once, write anywhere
 
   --
@@ -579,7 +652,11 @@ noindex:  false
 
   ---
 
-  ### But we can be better
+  ### But we need some features
+
+  - random quote
+  - last quote
+  - create a quote
 
   --
 
@@ -589,7 +666,20 @@ noindex:  false
 
   --
 
-  TODO:
+  <iframe width="760" height="515" src="https://www.youtube.com/embed/9qrChFqTJBE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+  ---
+
+  ## Recap Game!
+
+  --
+  ![](/assets/images/react-native-web/recap-1.png)
+  --
+  ![](/assets/images/react-native-web/recap-2.png)
+  --
+  ![](/assets/images/react-native-web/recap-3.png)
+  --
+  ![](/assets/images/react-native-web/recap-4.png)
 
   --
 
@@ -604,13 +694,16 @@ noindex:  false
 
   ## Interested with a in-house workshop?
 
+  https://bit.ly/react-native-web-workshop
+
   --
 
   ## Q&A
 
-  Ask questions [@flexbox_](https://twitter.com/flexbox_)
-  Ask questions [@sbentifraouine](https://twitter.com/sbentifraouine)
+  - Ask questions [@flexbox_](https://twitter.com/flexbox_)
+  - Ask questions [@sbentifraouine](https://twitter.com/sbentifraouine)
 
-  Save the link
+  Save the links
 
   https://bit.ly/react-native-web
+  https://bit.ly/react-native-web-workshop
