@@ -1,4 +1,12 @@
 -
+  link:     freelance
+  label:    Inspiration
+  flag:     🇬🇧
+  color:    secondary
+  title:    'Your freelancing on autopilot with Airtable'
+  subtitle: |
+    How can I work on my client's projects and sell my services in the meantime? Let me introduce you to all my automation protips.
+-
   link:     react-native-web
   label:    Front-end
   flag:     🇬🇧
