@@ -7,7 +7,7 @@ site:
     placename: 'Lille, Nord'
     position: 50.629250;3.057256
     region: FR-59
-  url: 'http://weblille.rocks'
+  url: 'https://courses.davidl.fr/'
   twitter_card_img: 'https://github.com/flexbox/courses/blob/master/source/assets/images/twitter-card.jpg?raw=true'
   author: David Leuliette
   analytics_id: 'UA-46684635-1'
