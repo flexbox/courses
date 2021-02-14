@@ -207,7 +207,7 @@ noindex:  false
 
   --
 
-  Strings and not number —sometimes `fontWeight`
+  Strings or number —sometimes weird `fontWeight`
 
   ```
   const App = () => (
@@ -236,20 +236,48 @@ noindex:  false
   });
   ```
 
+  --
+
+  Shadows iOS !== Android
+
+  ```
+  const App = () => (
+    <View style={styles.square}>
+      <Text>Square with Shadow</Text>
+    </View>
+  );
+
+  const styles = StyleSheet.create({
+    square: {
+      alignSelf: "center",
+      backgroundColor: "white",
+      height: 150,
+      width: 150,
+      shadowColor: "black", //iOS
+    },
+  });
+  ```
 
   --
 
   Shadows iOS !== Android
 
   ```
-  square: {
-    alignSelf: "center",
-    backgroundColor: "white",
-    borderRadius: 4,
-    height: 150,
-    shadowColor: "black", //iOS
-    width: 150
-  },
+  const App = () => (
+    <View style={styles.square} elevation={3}> //Android
+      <Text>Square with Shadow</Text>
+    </View>
+  );
+
+  const styles = StyleSheet.create({
+    square: {
+      alignSelf: "center",
+      backgroundColor: "white",
+      height: 150,
+      width: 150,
+      shadowColor: "black", //iOS
+    },
+  });
   ```
 
   --
@@ -260,14 +288,38 @@ noindex:  false
 
   --
 
-  ## Colors
+  ### Images
 
-  --
+  Use the `@2x` and `@3x` suffixes to provide images for different screen densities.
+
+  ```
+  <Image source={require('./img/check.png')} />
+  ```
+
+  ![](/assets/images/react-native-restyle/exports.gif)
 
 
   ---
 
   # PHASE 2
+
+  --
+
+  ### Designers x Developers
+
+  ![](/assets/images/react-native-restyle/hulk-ironman.gif)
+
+  --
+
+  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Using an off-the-shelf design system is like adopting Prettier. You need to agree with all the decisions they&#39;ve made—or make peace with them—or you&#39;re in for a bumpy ride. Especially if you haven&#39;t got buy-in from designers about the trade-off you&#39;ve made.</p>&mdash; Mark Dalgleish (@markdalgleish) <a href="https://twitter.com/markdalgleish/status/1357846325249757185?ref_src=twsrc%5Etfw">February 6, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  --
+
+  ## Colors
+
+  ---
+
+  # PHASE 3
 
   --
 
@@ -303,12 +355,6 @@ noindex:  false
   ---
 
   # COLORS
-
-  --
-
-  ### Designers x Developers
-
-  ![](/assets/images/react-native-restyle/hulk-ironman.gif)
 
   --
 
