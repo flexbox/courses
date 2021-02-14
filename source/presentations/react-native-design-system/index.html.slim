@@ -406,6 +406,7 @@ noindex:  false
 
   --
 
+  ```
   // OnboardingScreen.tsx
 
   <Text style={styles.hint}>Select your interests:</Text>
@@ -418,6 +419,7 @@ noindex:  false
       color: color.grayDark,
     },
   });
+  ```
 
   --
 
@@ -480,6 +482,12 @@ noindex:  false
 
   --
 
+  ### Spacing and `ScrollView`
+
+  ![](/assets/images/react-native-restyle/github-list.png)
+
+  --
+
   ## CEO wants dark mode
 
   ![](/assets/images/react-native-restyle/hulk-thor.gif)
@@ -496,14 +504,15 @@ noindex:  false
 
   --
 
-  [https://github.com/Shopify/restyle](https://github.com/Shopify/restyle)
+  [`yarn add @shopify/restyle`](https://github.com/Shopify/restyle)
 
   ![](/assets/images/react-native-restyle/restyle.png)
 
   --
 
-  > The Restyle library provides a type-enforced system<br>
-  > for building UI components in React Native with TypeScript.
+  > The Restyle library provides <br>
+  > a type-enforced system for building UI components <br>
+  > in `React Native` with `TypeScript`.
 
   --
 
@@ -515,19 +524,95 @@ noindex:  false
 
   ![](/assets/images/react-native-restyle/overload.gif)
 
-  ---
-
-  # TYPOGRAPHY
-
-  ---
+  --
 
   # COLORS
 
-  ---
+  --
+
+  ### Color palette sparks joy
+
+  ```
+  // palette.ts
+
+  const palette = {
+    purpleLight: '#8C6FF7',
+    purplePrimary: '#5A31F4',
+    purpleDark: '#3F22AB',
+
+    greenLight: '#56DCBA',
+    greenPrimary: '#0ECD9D',
+    greenDark: '#0A906E',
+
+    black: '#0B0B0B',
+    white: '#F0F2F3',
+  };
+  ```
+
+  --
+
+  ```
+  // theme.tsx
+
+  import { createTheme } from '@shopify/restyle'
+
+  const theme = createTheme({
+    colors: {
+      mainBackground: palette.white,
+      text: palette.black,
+      textonDark: palette.white,
+    },
+  });
+
+  export type Theme = typeof theme;
+  export default theme;
+  ```
+
+  --
+
+  # TYPOGRAPHY
+
+  --
+
+  ```
+  const theme = createTheme({
+  ...
+    textVariants: {
+      h1: {
+        fontSize: 28,
+        fontWeight: '500',
+        fontFamily: 'DINPro-Medium',
+      },
+      h2: {
+        fontSize: 24,
+        fontWeight: '500',
+        fontFamily: 'DINPro-Medium',
+      },
+      p1: {
+        fontSize: 16,
+        lineHeight: 24,
+        fontFamily: 'DINPro-Regular',
+      },
+      p2: {
+        fontWeight: '500',
+        fontSize: 16,
+        lineHeight: 24,
+        fontFamily: 'DINPro-Medium',
+      },
+      s1: {
+        fontSize: 12,
+        fontFamily: 'DINPro-Medium',
+      },
+    },
+  });
+
+  ```
+
+  --
 
   # THEMING
 
-  ---
+  --
 
   > Don’t code your `CSS-in-JS` for the screen.<br>
   > Code for the system.<br>
