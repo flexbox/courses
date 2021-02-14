@@ -35,7 +35,7 @@ noindex:  false
   ### CSS in 2010-ish
 
   - 😕 Global scope
-  - 😬 Grid without flexbox
+  - 😬 Grid system without `flexbox`
   - 🧐 Web browsers engines `Gecko`, `Trident`, `Webkit`…
 
   --
@@ -94,13 +94,16 @@ noindex:  false
   ---
 = partial 'layouts/presentation/speaker'
 | <div></div>
-  ---
+  --
 
-  ## Mentions ❤️ [@flexbox_](https://twitter.com/flexbox_)
+  ## Today we will be covering
 
-  Save the link
+  📕
 
-  http://bit.ly/rn-design
+  - The importance of a color palette
+  - Scaling Typography
+  - Theming
+  - Introduce a tool to design effectivelly
 
   --
 
@@ -120,14 +123,11 @@ noindex:  false
 
   --
 
-  ## Today we will be covering
+  ## Mentions ❤️ [@flexbox_](https://twitter.com/flexbox_)
 
-  📕
+  Save the link
 
-  - The importance of a color palette
-  - Scaling Typography
-  - Theming
-  - Introduce a tool to design effectivelly
+  http://bit.ly/rn-design
 
   ---
 
@@ -145,9 +145,118 @@ noindex:  false
 
   https://app.wooclap.com/events/HULK/0
 
+  --
+
+  ## React Native in a nutshell
+
+  ![](/assets/images/react-native-restyle/bruce-banner.webp)
+
+  --
+
+  ## React Native in a nutshell
+
+  ```
+  .js --- 🎩✨ ------> iOS
+                  |--> Android
+                  |--> Web Apps
+                  |--> Windows Apps
+                  |--> macOS Apps
+  ```
+
+  --
+
+  ## React Native in a nutshell
+
+  Container
+  ```
+  <div>   ---->   <View>
+  ```
+
+  Text
+  ```
+  <p>     ---->   <Text>
+  <h1>    ---->   <Text>
+  <h2>    ---->   <Text>
+  <h3>    ---->   <Text>
+  ```
+
   ---
 
   # PHASE 1
+
+  --
+
+  ### StyleSheets Vs React Native
+
+  No `-` it's camelCase
+
+  ```
+  const App = () => (
+    <View style={styles.container}>
+      <Text>React Native</Text>
+    </View>
+  );
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: "#eaeaea"
+    },
+  });
+  ```
+
+  --
+
+  Strings and not number —sometimes `fontWeight`
+
+  ```
+  const App = () => (
+    <View style={styles.container}>
+      <Text style={styles.title}>React Native</Text>
+    </View>
+  );
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: "#eaeaea"
+    },
+    title: {
+      marginTop: 16,
+      paddingVertical: 8,
+      borderWidth: 4,
+      borderColor: "#20232a",
+      borderRadius: 6,
+      backgroundColor: "#61dafb",
+      color: "#20232a",
+      textAlign: "center",
+      fontSize: 30,
+      fontWeight: "500"
+    }
+  });
+  ```
+
+
+  --
+
+  Shadows iOS !== Android
+
+  ```
+  square: {
+    alignSelf: "center",
+    backgroundColor: "white",
+    borderRadius: 4,
+    height: 150,
+    shadowColor: "black", //iOS
+    width: 150
+  },
+  ```
+
+  --
+
+  ### Layout
+
+  [Flexbox Yoga](https://yogalayout.com/playground)
 
   --
 
