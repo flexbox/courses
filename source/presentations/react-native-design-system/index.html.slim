@@ -311,11 +311,178 @@ noindex:  false
 
   --
 
-  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Using an off-the-shelf design system is like adopting Prettier. You need to agree with all the decisions they&#39;ve made—or make peace with them—or you&#39;re in for a bumpy ride. Especially if you haven&#39;t got buy-in from designers about the trade-off you&#39;ve made.</p>&mdash; Mark Dalgleish (@markdalgleish) <a href="https://twitter.com/markdalgleish/status/1357846325249757185?ref_src=twsrc%5Etfw">February 6, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  ### Find a common design language
+
+  ![](/assets/images/react-native-restyle/prettier.png)
 
   --
 
   ## Colors
+
+  --
+
+  ### 😤
+
+  ![](/assets/images/react-native-restyle/palette-not-scallable.png)
+
+  --
+
+  ### Anatomy of a good palette
+
+  - https://getbootstrap.com/docs/5.0/customize/color/
+  - https://tailwindcss.com/docs/customizing-colors
+  - https://colors.eva.design/
+
+  --
+
+  ### You start with a simple file
+
+  ```
+  // colors.ts
+
+  export const color = {
+    background: '#ffffff',
+    primaryLight: '#5e8c5d',
+    primary: '#7daf6b',
+    primaryDark: '#e0ebd7',
+    red: '#ed3e44'
+    grayDark: '#666',
+    gray: '#b3b3b3',
+    grayLight: '#b3b3b3',
+    transparent: 'rgba(0, 0, 0, 0)',
+  };
+
+  ```
+
+  --
+
+  ### and use values in files
+
+  ```
+  // Card.tsx
+
+  import {color} from '~/styles/colors';
+
+  ...
+
+  const styles = StyleSheet.create({
+    container: {
+      padding: 20,
+      borderRadius: 5
+      backgroundColor: color.primary,
+    },
+  });
+
+  ```
+
+  --
+
+  ### Colors
+
+  - Hard to maintain
+  - What about theming
+  - Should I use red for error messages?
+
+  --
+
+  ## Typography
+
+  --
+
+  ### Typography
+
+  ```
+  // typography.ts
+
+  export const extraLargeFontSize = {fontSize: 28};
+  export const largeFontSize = {fontSize: 24};
+  export const buttonFontSize = {fontSize: 18};
+  export const baseFontSize = {fontSize: 16};
+  export const smallFontSize = {fontSize: 12};
+  export const smallestFontSize = {fontSize: 10}; //tab bar font size
+
+  export const textRegular = {fontFamily: 'DINPro-Medium'};
+  ```
+
+  --
+
+  // OnboardingScreen.tsx
+
+  <Text style={styles.hint}>Select your interests:</Text>
+
+  ...
+
+  const styles = StyleSheet.create({
+    hint: {
+      size: typography.baseFontSize,
+      color: color.grayDark,
+    },
+  });
+
+  --
+
+  ### `...` Spread operator
+
+  ```
+  // typography.ts
+
+  export const bodyText = {
+    ...textRegular,
+    ...smallFontSize,
+    color: color.grayDark,
+    lineHeight: 19,
+  };
+
+  export const headerText = {
+    ...textHeader,
+    color: color.black,
+  };
+  ```
+  --
+
+  ### Create more rules for less styles
+
+  ```
+  // ArticleScreen.tsx
+
+  <Text style={styles.header}>Article</Text>
+
+  ...
+
+  const styles = StyleSheet.create({
+    header: {
+      ...Typography.headerText,
+      color: color.primary,
+    },
+  });
+  ```
+  --
+
+  ### Can you add just a tiny small change?
+
+  _Designer request on friday 5pm_
+
+  ![](/assets/images/react-native-restyle/tony-car.jpg)
+
+  --
+
+  ### 😱 `n` levels of abstraction
+
+  ![](/assets/images/react-native-restyle/inception-nolan.jpg)
+
+  --
+
+  ### Typography recipe to disaster
+
+  - Too much dupplication
+  - You create more rules for less style
+  - Font styles doesn't make any sense
+
+  --
+
+  ## CEO wants dark mode
+
+  ![](/assets/images/react-native-restyle/hulk-thor.gif)
 
   ---
 
@@ -355,14 +522,6 @@ noindex:  false
   ---
 
   # COLORS
-
-  --
-
-  ### Anatomy of a good palette
-
-  - https://getbootstrap.com/docs/5.0/customize/color/
-  - https://tailwindcss.com/docs/customizing-colors
-  - https://colors.eva.design/
 
   ---
 
