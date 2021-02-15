@@ -476,8 +476,8 @@ noindex:  false
 
   ### Typography recipe to disaster
 
-  - Too much dupplication
-  - You create more rules for less style
+  - Too much duplication
+  - Create more rules for less style
   - Font styles doesn't make any sense
 
   --
@@ -516,7 +516,23 @@ noindex:  false
 
   --
 
-  # TYPESCRIPT
+
+  ```
+  // App.tsx
+
+  import { ThemeProvider } from '@shopify/restyle';
+  import theme from '~/theme';
+
+  const App = () => (
+    <ThemeProvider theme={theme}>
+      <RootNavigator />
+    </ThemeProvider>
+  )
+  ```
+
+  --
+
+  ## TYPESCRIPT
 
   --
 
@@ -526,23 +542,23 @@ noindex:  false
 
   --
 
-  # COLORS
+  ## COLORS
 
   --
 
-  ### Color palette sparks joy
+  ### Color palette that sparks joy
 
   ```
   // palette.ts
 
   const palette = {
-    purpleLight: '#8C6FF7',
-    purplePrimary: '#5A31F4',
-    purpleDark: '#3F22AB',
+    purple100: '#8C6FF7',
+    purple500: '#5A31F4',
+    purple900: '#3F22AB',
 
-    greenLight: '#56DCBA',
-    greenPrimary: '#0ECD9D',
-    greenDark: '#0A906E',
+    green100: '#56DCBA',
+    green500: '#0ECD9D',
+    green900: '#0A906E',
 
     black: '#0B0B0B',
     white: '#F0F2F3',
@@ -551,16 +567,23 @@ noindex:  false
 
   --
 
+  ### Create a theme using this palette
+
   ```
   // theme.tsx
 
   import { createTheme } from '@shopify/restyle'
+  import { palette } from './palette';
 
   const theme = createTheme({
     colors: {
       mainBackground: palette.white,
+      primary: palette.green500,
+      secondary: palette.purple500,
       text: palette.black,
-      textonDark: palette.white,
+      textOnDark: palette.white,
+      icon: palette.gray800,
+      iconOnDark: palette.gray200,
     },
   });
 
@@ -570,13 +593,52 @@ noindex:  false
 
   --
 
+  ### 🎨 colors everywhere
+
+  ```
+  import {Calendar as WixCalendar, CalendarProps} from 'react-native-calendars';
+  import theme from '~/theme';
+
+  const Calendar = (props: CalendarProps) => {
+    return (
+      <WixCalendar
+        {...props}
+        theme={{
+          textSectionTitleColor: theme.colors.gray400,
+          selectedDayBackgroundColor: theme.colors.primaryLight,
+          selectedDayTextColor: theme.colors.primaryDark,
+          todayTextColor: theme.colors.primary,
+          dayTextColor: theme.colors.gray800,
+          textDisabledColor: theme.colors.gray200,
+          arrowColor: theme.colors.gray500,
+          monthTextColor: theme.colors.black,
+        }}
+      />
+    );
+  };
+
+  export default Calendar;
+  ```
+
+  --
+
+  ### 🎨 colors everywhere
+
+  add .gif with Text autocomplete
+
+  --
+
   # TYPOGRAPHY
 
   --
 
   ```
+  // theme.ts
+
   const theme = createTheme({
-  ...
+
+    ...
+
     textVariants: {
       h1: {
         fontSize: 28,
@@ -610,7 +672,54 @@ noindex:  false
 
   --
 
+  ### Variant
+
+  add .gif with Text autocomplete
+
+  --
+
+  ## Spacing
+
+  --
+
+  ```
+  // theme.ts
+
+  const theme = createTheme({
+    ...
+
+    spacing: {
+    xs: 4,
+    s: 8,
+    m: 16,
+    l: 24,
+    xl: 32,
+    xxl: 48,
+  },
+
+  ```
+
+  --
+
+  ### `<Box>` Autocomplete
+
+  add .gif with `m` autocomplete
+
+  --
+
   # THEMING
+
+  ---
+
+  # RECAP
+
+  --
+
+  ### Tooling from the Hero
+
+  - ✅ Use `TypeScript`
+  - ✅ `restyle` is awesome
+  - ✅ `StoryBook` to work faster at scale
 
   --
 
@@ -623,7 +732,6 @@ noindex:  false
   [https://davidl.fr/road-to-react-native](https://davidl.fr/road-to-react-native)
 
   ![](/assets/images/react-native-restyle/road-to-react-native.jpg)
-
 
   --
 
