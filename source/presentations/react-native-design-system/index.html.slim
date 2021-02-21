@@ -518,22 +518,6 @@ noindex:  false
 
   --
 
-
-  ```
-  // App.tsx
-
-  import { ThemeProvider } from '@shopify/restyle';
-  import theme from '~/theme';
-
-  const App = () => (
-    <ThemeProvider theme={theme}>
-      <RootNavigator />
-    </ThemeProvider>
-  )
-  ```
-
-  --
-
   ## TYPESCRIPT
 
   --
@@ -552,9 +536,26 @@ noindex:  false
 
   ### DX is nice
 
-  - Autocomple
+  - Autocomplete
   - Types
   - It's just a superset
+
+  --
+
+  ### Add a `ThemeProvider`
+
+  ```
+  // App.tsx
+
+  import { ThemeProvider } from '@shopify/restyle';
+  import theme from '~/theme';
+
+  const App = () => (
+    <ThemeProvider theme={theme}>
+      <RootNavigator />
+    </ThemeProvider>
+  );
+  ```
 
   --
 
@@ -638,9 +639,9 @@ noindex:  false
 
   --
 
-  ### 🎨 colors everywhere
+  ### 🎨 `backgroundColor` | `color` everywhere
 
-  add .gif with Text autocomplete
+  ![](/assets/images/react-native-restyle/backgroundColor.gif)
 
   --
 
@@ -690,7 +691,7 @@ noindex:  false
 
   ### Variant
 
-  add .gif with Text autocomplete
+  ![](/assets/images/react-native-restyle/text-variant.gif)
 
   --
 
@@ -719,26 +720,30 @@ noindex:  false
 
   ### `<Box>` Autocomplete
 
-  add .gif with `m` autocomplete
-
   --
 
   ## Text
 
+  --
 
   ## Box
 
   - padding
   - margin
-  alignment
-  backgroundColor
+  - alignment
+  - backgroundColor
+
+  --
+
+  ## Box
+
+  ![](/assets/images/react-native-restyle/box-alignment.gif)
 
   --
 
   ## Encapsulation
 
   Storybook
-
 
   --
 
