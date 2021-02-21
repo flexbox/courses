@@ -474,6 +474,12 @@ noindex:  false
 
   --
 
+  ### 😱 `n` levels of abstraction
+
+  ![](/assets/images/react-native-restyle/bug-layout.gif)
+
+  --
+
   ### Typography recipe to disaster
 
   - Too much duplication
@@ -613,10 +619,15 @@ noindex:  false
   ### 🎨 colors everywhere
 
   ```
+  import {useTheme} from '@shopify/restyle';
+  import React from 'react';
   import {Calendar as WixCalendar, CalendarProps} from 'react-native-calendars';
-  import theme from '~/theme';
+
+  import {Theme} from '~/theme/theme';
 
   const Calendar = (props: CalendarProps) => {
+    const theme = useTheme<Theme>();
+
     return (
       <WixCalendar
         {...props}
@@ -635,6 +646,7 @@ noindex:  false
   };
 
   export default Calendar;
+
   ```
 
   --
@@ -689,6 +701,22 @@ noindex:  false
 
   --
 
+  ## Text
+
+  ```
+  // Text.tsx
+
+  import {createText} from '@shopify/restyle';
+  import {Theme} from './theme';
+
+  const Text = createText<Theme>();
+
+  export default Text;
+
+  ```
+
+  --
+
   ### Variant
 
   ![](/assets/images/react-native-restyle/text-variant.gif)
@@ -718,26 +746,71 @@ noindex:  false
 
   --
 
-  ### `<Box>` Autocomplete
+  ## `<Box>`
 
-  --
+  ```
+  // Box.tsx
 
-  ## Text
+  import {createBox} from '@shopify/restyle';
+
+  import {Theme} from '~/theme';
+
+  const Box = createBox<Theme>();
+
+  export default Box;
+
+  ```
 
   --
 
   ## Box
 
-  - padding
-  - margin
-  - alignment
+  - `spacing`: padding, margin
+  - Alignment
   - backgroundColor
+  - borderRadii
 
   --
 
-  ## Box
+  ## `<Box>` Autocomplete
 
   ![](/assets/images/react-native-restyle/box-alignment.gif)
+
+  --
+
+  ## Custom Components
+
+  --
+
+  ### Card
+
+  ```
+  // Card.tsx
+
+  import {
+    createRestyleComponent,
+    createVariant,
+    spacing,
+    SpacingProps,
+    VariantProps
+  } from '@shopify/restyle';
+  import {Theme} from '~/theme';
+
+  type Props = SpacingProps<Theme> & VariantProps<Theme, 'cardVariants'>
+  const Card = createRestyleComponent<Props>([
+    spacing,
+    createVariant({themeKey: 'cardVariants'})
+  ])
+
+  export default Card
+
+  ```
+
+  --
+
+  ### Card
+
+  ![](/assets/images/react-native-restyle/cardVariants.gif)
 
   --
 
