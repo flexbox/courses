@@ -512,14 +512,14 @@ noindex:  false
 
   --
 
-  [`yarn add @shopify/restyle`](https://github.com/Shopify/restyle)
+  `yarn add @shopify/restyle`
 
-  ![](/assets/images/react-native-restyle/restyle.png)
+  [![](/assets/images/react-native-restyle/restyle.png)](https://github.com/Shopify/restyle)
 
   --
 
   > The Restyle library provides <br>
-  > a type-enforced system for building UI components <br>
+  > a __type-enforced system__ for __building UI components__ <br>
   > in `React Native` with `TypeScript`.
 
   --
@@ -544,7 +544,7 @@ noindex:  false
 
   - Autocomplete
   - Types
-  - It's just a superset
+  - It's just a superset of JavaScript
 
   --
 
@@ -593,7 +593,7 @@ noindex:  false
   ### Create a theme using this palette
 
   ```
-  // theme.tsx
+  // theme.ts
 
   import { createTheme } from '@shopify/restyle'
   import { palette } from './palette';
@@ -616,14 +616,20 @@ noindex:  false
 
   --
 
-  ### 🎨 colors everywhere
+  ### Using colors
+
+  ![](/assets/images/react-native-restyle/wix-calendar.gif)
+
+  --
+
+  ### useTheme()
 
   ```
-  import {useTheme} from '@shopify/restyle';
   import React from 'react';
   import {Calendar as WixCalendar, CalendarProps} from 'react-native-calendars';
 
   import {Theme} from '~/theme/theme';
+  import {useTheme} from '@shopify/restyle';
 
   const Calendar = (props: CalendarProps) => {
     const theme = useTheme<Theme>();
@@ -660,6 +666,8 @@ noindex:  false
   # TYPOGRAPHY
 
   --
+
+  ### textVariants
 
   ```
   // theme.ts
@@ -701,7 +709,7 @@ noindex:  false
 
   --
 
-  ## Text
+  ## `<Text>`
 
   ```
   // Text.tsx
@@ -723,9 +731,11 @@ noindex:  false
 
   --
 
-  ## Spacing
+  # Spacing
 
   --
+
+  ### T-shirt sizing
 
   ```
   // theme.ts
@@ -734,12 +744,13 @@ noindex:  false
     ...
 
     spacing: {
-    xs: 4,
-    s: 8,
-    m: 16,
-    l: 24,
-    xl: 32,
-    xxl: 48,
+      xs: 4,
+      s: 8,
+      m: 16,
+      l: 24,
+      xl: 32,
+      xxl: 48,
+    }
   },
 
   ```
@@ -752,7 +763,6 @@ noindex:  false
   // Box.tsx
 
   import {createBox} from '@shopify/restyle';
-
   import {Theme} from '~/theme';
 
   const Box = createBox<Theme>();
@@ -763,12 +773,12 @@ noindex:  false
 
   --
 
-  ## Box
+  ## `<Box>`
 
   - `spacing`: padding, margin
   - Alignment
   - backgroundColor
-  - borderRadii
+  - `borderRadii`: borderRadius
 
   --
 
@@ -814,9 +824,17 @@ noindex:  false
 
   --
 
-  ## Encapsulation
+  # Component Driven Developement
 
-  Storybook
+  2017
+
+  ![](/assets/images/react-native-restyle/CDD.jpg)
+
+  --
+
+  ### Storybook
+
+  `npx -p @storybook/cli sb init --type react_native`
 
   --
 
