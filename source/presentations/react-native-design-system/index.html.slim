@@ -10,7 +10,7 @@ noindex:  false
 
   React Meetup — Bordeaux
 
-  _February 2021_
+  _March 2021_
 
   ---
 
@@ -96,14 +96,23 @@ noindex:  false
 | <div></div>
   --
 
+  ## Mentions ❤️ [@flexbox_](https://twitter.com/flexbox_)
+
+  Save the link
+
+  http://bit.ly/rn-design
+
+  --
+
   ## Today we will be covering
 
   📕
 
   - The importance of a color palette
-  - Scaling Typography
-  - Theming
-  - Introduce a tool to design effectivelly
+  - Designing Typography at scale
+  - TypeScript Design System
+  - Restyle from Shopify
+  - Storybook from Chromatic
 
   --
 
@@ -121,25 +130,15 @@ noindex:  false
 
   ![](/assets/images/react-native-restyle/hulk2003.jpg)
 
-  --
-
-  ## Mentions ❤️ [@flexbox_](https://twitter.com/flexbox_)
-
-  Save the link
-
-  http://bit.ly/rn-design
-
   ---
 
   # Who are you?
 
   --
 
+  https://www.wooclap.com/HULK
+
   ![](/assets/images/react-native-restyle/qr-game.png)
-
-  --
-
-  ### https://www.wooclap.com/HULK
 
   --
 
@@ -186,11 +185,19 @@ noindex:  false
 
   --
 
-  ### StyleSheets Vs React Native
+  ### React Native Vs StyleSheets
 
-  No `-` it's camelCase
+  - JavaScript objects
+  - No `-` it's camelCase
+
+  --
+
+  ### React Native Vs StyleSheets
 
   ```
+  import React from "react";
+  import { StyleSheet, Text, View } from "react-native";
+
   const App = () => (
     <View style={styles.container}>
       <Text>React Native</Text>
@@ -285,6 +292,16 @@ noindex:  false
   ### Layout
 
   [Flexbox Yoga](https://yogalayout.com/playground)
+
+  ![](/assets/images/react-native-restyle/yoga.png)
+
+  --
+
+  ### Same same —but different
+
+  - `flexDirection` defaulting to `column` instead of `row`
+  - `alignContent` defaulting to `flex-start` instead of `stretch`
+  - `flexShrink` defaulting to `0` instead of `1`
 
   --
 
@@ -824,11 +841,15 @@ noindex:  false
 
   --
 
-  # Component Driven Developement
+  Component Driven Development
 
   2017
 
   ![](/assets/images/react-native-restyle/CDD.jpg)
+
+  --
+
+  > Designing your software applications by building loosely-coupled independent components
 
   --
 
