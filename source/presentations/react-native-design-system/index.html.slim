@@ -485,6 +485,28 @@ noindex:  false
 
   --
 
+  ### Create more and more rules for less and less styles
+
+  ```
+  // HistoryScreen.tsx
+
+  <Text style={[styles.header, styles.textCenter]}>History</Text>
+
+  ...
+
+  const styles = StyleSheet.create({
+    header: {
+      ...Typography.headerText,
+      color: color.primary,
+    },
+    textCenter: {
+      textAlign: 'center',
+    }
+  });
+  ```
+
+  --
+
   ### 😱 `n` levels of abstraction
 
   ![](/assets/images/react-native-restyle/inception-nolan.jpg)
@@ -516,6 +538,10 @@ noindex:  false
   _Too complicated, because you have sh$t tons of issues_
 
   ![](/assets/images/react-native-restyle/hulk-thor.gif)
+
+  --
+
+  <iframe src="https://www.youtube.com/embed/QiXJtjNea1A?modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&theme=light&fs=0&color=white&controls=0&disablekb=1" width="760" height="515"  frameborder="0"></iframe>
 
   ---
 
@@ -856,7 +882,98 @@ noindex:  false
 
   --
 
-  Component Driven Development
+  ### `cardVariants`
+
+  ```
+  // theme.ts
+
+  const theme = createTheme({
+
+    ...
+
+    cardVariants: {
+      callout: {
+        backgroundColor: palette.gray500,
+        borderRadius: 4
+      },
+      outline: {
+        borderColor: palette.purple500,
+        borderWidth: 2,
+        backgroundColor: palette.transparent,
+        borderRadius: 4
+      },
+    },
+  });
+
+  ```
+
+  --
+
+  ## Dark Mode
+
+  --
+
+  ### Dark Mode
+
+  ```
+  // theme.ts
+
+  ...
+
+  const darkTheme: Theme = {
+    ...theme,
+    colors: {
+      ...theme.colors,
+      mainBackground: palette.black,
+      mainForeground: palette.white,
+
+      secondaryCardBackground: palette.darkGray,
+      secondaryCardText: palette.white,
+    },
+  };
+  ```
+
+  --
+
+  ### Dark Mode
+
+  ```javascript
+  const App = () => {
+    const [darkMode, setDarkMode] = useState(false);
+    return (
+      <ThemeProvider theme={darkMode ? darkTheme : theme}>
+        ...
+
+        <Box marginTop="m">
+          <Switch
+            value={darkMode}
+            onValueChange={(value: boolean) => setDarkMode(value)}
+          />
+        </Box>
+
+      </ThemeProvider>
+    );
+  };
+
+  export default App;
+  ```
+
+  --
+
+  > Why does it take so long to build software?
+  > — Marketing people who "just want to add a button"
+
+  ![](/assets/images/react-native-restyle/why-so-long.jpg)
+
+  --
+
+  ### User flow is complex
+
+  ![](/assets/images/react-native-restyle/ux-mobile.jpg)
+
+  --
+
+  ### Component Driven Development
 
   2017
 
@@ -870,11 +987,12 @@ noindex:  false
 
   ### Storybook
 
-  `npx -p @storybook/cli sb init --type react_native`
-
   --
 
-  ## Darkmode
+  ### Storybook
+
+  - `npx -p @storybook/cli sb init --type react_native`
+  - `yarn add -D @types/storybook__react`
 
   ---
 
