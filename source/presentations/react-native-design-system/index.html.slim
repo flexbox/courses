@@ -893,11 +893,11 @@ noindex:  false
 
     cardVariants: {
       callout: {
-        backgroundColor: palette.gray500,
+        backgroundColor: palette.cardBackground,
         borderRadius: 4
       },
       outline: {
-        borderColor: palette.purple500,
+        borderColor: palette.cardBorder,
         borderWidth: 2,
         backgroundColor: palette.transparent,
         borderRadius: 4
@@ -927,8 +927,13 @@ noindex:  false
       mainBackground: palette.black,
       mainForeground: palette.white,
 
-      secondaryCardBackground: palette.darkGray,
-      secondaryCardText: palette.white,
+      primary: palette.green500,
+      secondary: palette.purple500,
+
+      text: palette.white,
+      textOnDark: palette.black,
+      icon: palette.gray200,
+      iconOnDark: palette.gray800,
     },
   };
   ```
@@ -960,7 +965,24 @@ noindex:  false
 
   --
 
-  > Why does it take so long to build software?
+  ### Appearance
+
+  ```
+  import { Appearance } from 'react-native';
+
+  ...
+
+  const colorScheme = Appearance.getColorScheme();
+
+  if (colorScheme === 'dark') {
+    // Use dark color scheme
+    setDarkMode(true)
+  }
+  `
+
+  --
+
+  > Why does it take so long to build software?<br>
   > — Marketing people who "just want to add a button"
 
   ![](/assets/images/react-native-restyle/why-so-long.jpg)
@@ -991,8 +1013,88 @@ noindex:  false
 
   ### Storybook
 
+  https://airbnb.io/lunar/
+
+  --
+
+  ### Storybook
+
   - `npx -p @storybook/cli sb init --type react_native`
   - `yarn add -D @types/storybook__react`
+
+  --
+
+  ### Storybook
+
+  ```
+  // App.tsx
+
+  import {ThemeProvider} from '@shopify/restyle';
+  import {ToggleStorybook} from '~/storybook/ToggleStorybook';
+
+  import theme from '~/theme';
+
+  const App = () => (
+    <ToggleStorybook>
+      <ThemeProvider theme={theme}>
+        <RootNavigator />
+      </ThemeProvider>
+    </ToggleStorybook>
+  );
+  ```
+
+  --
+
+  ### Storybook
+
+  ```
+  // ToggleStorybook.tsx
+
+  import React, {useState, useEffect} from 'react';
+
+  import config from '~/config';
+
+  /**
+   * Toggle Storybook mode, in __DEV__ mode only.
+   *
+   * In non-__DEV__ mode, or when Storybook isn't toggled on,
+   * renders its children.
+   *
+   */
+
+  interface ToggleStorybookProps {
+    children: React.ReactElement;
+  }
+
+  export function ToggleStorybook(props: ToggleStorybookProps) {
+    const [StorybookUIRoot, setStorybookUIRoot] = useState(null);
+
+    useEffect(() => {
+      if (__DEV__) {
+        // Load the storybook UI once
+        setStorybookUIRoot(() => require('./Storybook').StorybookUIRoot);
+      }
+    }, []);
+
+    if (config.SHOW_STORYBOOK === 'true') {
+      return StorybookUIRoot ? <StorybookUIRoot /> : null;
+    } else {
+      return props.children;
+    }
+  }
+
+  ```
+
+  --
+
+  ### dotenv
+
+  ```
+  // .env
+
+  SHOW_STORYBOOK=false
+
+  ```
 
   ---
 
